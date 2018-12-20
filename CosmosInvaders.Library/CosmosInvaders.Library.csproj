@@ -54,7 +54,7 @@
     <Compile Include="Controllers\Command\SpeedUpCommand.cs" />
     <Compile Include="Controllers\Command\TurnLeftCommand.cs" />
     <Compile Include="Controllers\Command\TurnRightCommand.cs" />
-    <Compile Include="Controllers\Enumerators\DrivingDirection.cs" />
+    <Compile Include="Controllers\Enumerators\FlyingDirection.cs" />
     <Compile Include="Controllers\Enumerators\TurnTo.cs" />
     <Compile Include="Controllers\Facade\GameFacade.cs" />
     <Compile Include="Controllers\Factory\AbstractVehicleFactory.cs" />
@@ -65,8 +65,8 @@
     <Compile Include="Controllers\Factory\Destroyers\IDestroyer.cs" />
     <Compile Include="Controllers\Factory\Destroyers\MediumShip.cs" />
     <Compile Include="Controllers\Factory\Destroyers\BigShip.cs" />
-    <Compile Include="Controllers\Factory\Vehicle.cs" />
-    <Compile Include="Controllers\Factory\VehicleFactory.cs" />
+    <Compile Include="Controllers\Factory\Ship.cs" />
+    <Compile Include="Controllers\Factory\ShipFactory.cs" />
     <Compile Include="Controllers\Mediator\ChatRoom.cs" />
     <Compile Include="Controllers\Observer\IObservable.cs" />
     <Compile Include="Controllers\Observer\IObserver.cs" />
@@ -76,9 +76,9 @@
     <Compile Include="Controllers\Prototype\Rock.cs" />
     <Compile Include="Controllers\Prototype\Tree.cs" />
     <Compile Include="Controllers\Singleton\Game.cs" />
-    <Compile Include="Controllers\Strategy\DriveAlgorithm.cs" />
-    <Compile Include="Controllers\Strategy\DriveMud.cs" />
-    <Compile Include="Controllers\Strategy\DriveRegular.cs" />
+    <Compile Include="Controllers\Strategy\FlyAlgorithm.cs" />
+    <Compile Include="Controllers\Strategy\FlyMud.cs" />
+    <Compile Include="Controllers\Strategy\FlyRegular.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

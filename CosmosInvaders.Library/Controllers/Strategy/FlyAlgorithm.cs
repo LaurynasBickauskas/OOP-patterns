@@ -2,7 +2,7 @@ using System;
 
 namespace CosmosInvaders.Library
 {
-    public abstract class DriveAlgorithm
+    public abstract class FlyAlgorithm
     {
         private const double _straightMovementParameter = 1;
 
