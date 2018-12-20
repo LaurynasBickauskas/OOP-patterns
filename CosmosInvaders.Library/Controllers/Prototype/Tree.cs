@@ -2,9 +2,9 @@
 
 namespace CosmosInvaders.Library
 {
-    public class Tree : Obstacle
+    public class Debris : Obstacle
     {
-        public Tree()
+        public Debris()
         {
             UpperLeftCoordinateX = 0;
             UpperLeftCoordinateY = 0;

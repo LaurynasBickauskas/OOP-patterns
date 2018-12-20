@@ -40,7 +40,7 @@ namespace CosmosInvaders.Client
             {
                 "Small ship",
                 "Medium ship",
-                "Large ship"
+                "Big ship"
             };
 
             ChatHub = new WSConnection(_instance, GameDraw);
@@ -142,7 +142,7 @@ namespace CosmosInvaders.Client
                     break;
 
                 case "Medium ship":
-                case "Large ship":
+                case "Big ship":
                     family = "Destroyer";
                     break;
             }
@@ -228,9 +228,9 @@ namespace CosmosInvaders.Client
             //}
             //else
             //{
-            //    clientShip.DrivingDirection = serverShip.DrivingDirection;
-            //    DirectionValue.Text = serverShip.DrivingDirection.ToString();
-            //    GameDraw.TurnCar(clientShip.DrivingDirection);
+            //    clientShip.FlyingDirection = serverShip.FlyingDirection;
+            //    DirectionValue.Text = serverShip.FlyingDirection.ToString();
+            //    GameDraw.TurnCar(clientShip.FlyingDirection);
             //}
 
             ChatHub.Move(UsernameTextBox.Text, moveTo);

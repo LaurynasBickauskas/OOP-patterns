@@ -2,27 +2,27 @@ using System;
 
 namespace CosmosInvaders.Library
 {
-    public abstract class DriveAlgorithm
+    public abstract class FlyAlgorithm
     {
         private const double _straightMovementParameter = 1;
 
-        public (int x, int y) Move(int x, int y, DrivingDirection direction, double speed)
+        public (int x, int y) Move(int x, int y, FlyingDirection direction, double speed)
         {
             switch (direction)
             {
-                case DrivingDirection.Left:
+                case FlyingDirection.Left:
                     x -= CalculateMovement(_straightMovementParameter, speed);
                     break;
 
-                case DrivingDirection.Up:
+                case FlyingDirection.Up:
                     y -= CalculateMovement(_straightMovementParameter, speed);
                     break;
 
-                case DrivingDirection.Right:
+                case FlyingDirection.Right:
                     x += CalculateMovement(_straightMovementParameter, speed);
                     break;
 
-                case DrivingDirection.Down:
+                case FlyingDirection.Down:
                     y += CalculateMovement(_straightMovementParameter, speed);
                     break;
             }
@@ -32,12 +32,12 @@ namespace CosmosInvaders.Library
             if (x > 560) x = 560;
             if (x < 0) x = 0;
 
-            NotifyOtherCars();
+            NotifyOtherDestroyers();
             return (x, y);
         }
 
         protected abstract int CalculateMovement(double p, double speed);
 
-        protected abstract void NotifyOtherCars();
+        protected abstract void NotifyOtherDestroyers();
     }
 }

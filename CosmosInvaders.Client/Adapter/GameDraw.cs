@@ -27,7 +27,7 @@ namespace CosmosInvaders.Client
             public int ShipWidth { get; set; } = 20;
             public int ShipHeight { get; set; } = 40;
             public int MaxSpeed { get; set; }
-            public DrivingDirection DrivingDirection { get; set; } = DrivingDirection.Up;
+            public FlyingDirection FlyingDirection { get; set; } = FlyingDirection.Up;
         }
 
         public SplitContainer Canvas { get; set; }
@@ -47,9 +47,9 @@ namespace CosmosInvaders.Client
                     ShipX = x.CoordinateX,
                     ShipY = x.CoordinateY,
                     MaxSpeed = x.MaxSpeed,
-                    DrivingDirection = x.DrivingDirection,
-                    ShipHeight = x.DrivingDirection == DrivingDirection.Up || x.DrivingDirection == DrivingDirection.Down ? 40 : 20,
-                    ShipWidth = x.DrivingDirection == DrivingDirection.Up || x.DrivingDirection == DrivingDirection.Down ? 20 : 40,
+                    FlyingDirection = x.FlyingDirection,
+                    ShipHeight = x.FlyingDirection == FlyingDirection.Up || x.FlyingDirection == FlyingDirection.Down ? 40 : 20,
+                    ShipWidth = x.FlyingDirection == FlyingDirection.Up || x.FlyingDirection == FlyingDirection.Down ? 20 : 40,
                 }).ToList();
 
             _tempShips = new List<MinimalShip>();
@@ -78,7 +78,7 @@ namespace CosmosInvaders.Client
             foreach (var v in _tempShips)
             {
                 g.DrawImage(
-                        GetShipByType(v.MaxSpeed, v.DrivingDirection),
+                        GetShipByType(v.MaxSpeed, v.FlyingDirection),
                         v.ShipX,
                         v.ShipY,
                         v.ShipWidth,
@@ -87,33 +87,21 @@ namespace CosmosInvaders.Client
             }
         }
 
-        public Bitmap GetShipByType(int maxSpeed, DrivingDirection direction)
+        public Bitmap GetShipByType(int maxSpeed, FlyingDirection direction)
         {
             switch (maxSpeed)
             {
-                case 10:
-                    IShipType bicycleType = new Visitor.Bikes.Bicycle();
-                    return bicycleType.Display(new ShipTypeDisplayVisitor(), direction);
-
-                case 20:
-                    IShipType motorbikeType = new Visitor.Bikes.Motorbike();
-                    return motorbikeType.Display(new ShipTypeDisplayVisitor(), direction);
+                case 50:
+                    IShipType smallShipType = new Visitor.Rangers.SmallShip();
+                    return smallShipType.Display(new ShipTypeDisplayVisitor(), direction);
 
                 case 30:
-                    IShipType quadType = new Visitor.Bikes.Quad();
-                    return quadType.Display(new ShipTypeDisplayVisitor(), direction);
+                    IShipType mediumShipType = new Visitor.Destroyers.MediumShip();
+                    return mediumShipType.Display(new ShipTypeDisplayVisitor(), direction);
 
-                case 40:
-                    IShipType truckType = new Visitor.Cars.Truck();
-                    return truckType.Display(new ShipTypeDisplayVisitor(), direction);
-
-                case 50:
-                    IShipType jeepType = new Visitor.Cars.Jeep();
-                    return jeepType.Display(new ShipTypeDisplayVisitor(), direction);
-
-                case 60:
-                    IShipType raceCarType = new Visitor.Cars.RaceCar();
-                    return raceCarType.Display(new ShipTypeDisplayVisitor(), direction);
+                case 20:
+                    IShipType bigShipType = new Visitor.Destroyers.BigShip();
+                    return bigShipType.Display(new ShipTypeDisplayVisitor(), direction);
             }
             return null;
         }

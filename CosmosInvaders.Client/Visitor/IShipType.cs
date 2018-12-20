@@ -5,6 +5,6 @@ namespace CosmosInvaders.Client.Visitor
 {
     public interface IShipType
     {
-        Bitmap Display(IShipTypeVisitor shipTypeVisitor, DrivingDirection direction);
+        Bitmap Display(IShipTypeVisitor shipTypeVisitor, FlyingDirection direction);
     }
 }

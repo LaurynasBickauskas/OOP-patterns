@@ -1,23 +1,26 @@
 Bendrai :
 Singleton, Adapter
-Singleton - Rytis
+Singleton - Rytis - done
 Adapter -  Gedas,Laurynas
 
 Pasirinkti viena iš :
 Builder.
 
-Factory,Abstract Factory - Gediminas
-Strategy - Rytis
+Factory,Abstract Factory - Gediminas - done
+Strategy - Rytis - done
 Observer - Laurynas
 
 Pasirinkti viena iš :
 Prototype, Bridge.
 
-Decorator - Rytis
-Prototype - Gedas
-Facade - Laurynas
+Decorator - Rytis - done
+Prototype - Gedas - done
+Facade - Laurynas - done
 
-Command, 
+Command - done
 
 Palyginkite deep ir shallow kopiju sukurima naudojant Prototype šablona
+
+
+2 padaryta - visitor, mediator, proxy (gediminas, rytis)
 
