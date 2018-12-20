@@ -97,7 +97,7 @@
     <Compile Include="Adapter\GameDraw.cs" />
     <Compile Include="Adapter\IDraw.cs" />
     <Compile Include="Decorator\DrawDecorator.cs" />
-    <Compile Include="Decorator\HeadlightsDecorator.cs" />
+    <Compile Include="Decorator\CannonDecorator.cs" />
     <Compile Include="Decorator\IDrawDecorator.cs" />
     <Compile Include="DoubleBufferedPanel.cs">
       <SubType>Component</SubType>

@@ -2,16 +2,16 @@
 {
     public class SpeedUpCommand : ICommand
     {
-        IMovable _vehicle { get; set; }
+        IMovable _ship { get; set; }
 
-        public SpeedUpCommand(IMovable vehicle)
+        public SpeedUpCommand(IMovable ship)
         {
-            _vehicle = vehicle;
+            _ship = ship;
         }
 
         public void Execute()
         {
-            _vehicle.ChangeSpeed(true);
+            _ship.ChangeSpeed(true);
         }
     }
 }

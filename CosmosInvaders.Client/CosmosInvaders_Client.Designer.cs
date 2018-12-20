@@ -47,8 +47,8 @@ namespace CosmosInvaders.Client
             this.StatusLabel = new System.Windows.Forms.Label();
             this.StatusDescriptionLabel = new System.Windows.Forms.Label();
             this.ConnectButton = new System.Windows.Forms.Button();
-            this.VehicleLabel = new System.Windows.Forms.Label();
-            this.VehiclesDropDown = new System.Windows.Forms.ComboBox();
+            this.ShipLabel = new System.Windows.Forms.Label();
+            this.ShipsDropDown = new System.Windows.Forms.ComboBox();
             this.UsernameLabel = new System.Windows.Forms.Label();
             this.UsernameTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -79,8 +79,8 @@ namespace CosmosInvaders.Client
             this.splitContainer1.Panel2.Controls.Add(this.OutputLog);
             this.splitContainer1.Panel2.Controls.Add(this.panel1);
             this.splitContainer1.Panel2.Controls.Add(this.ConnectButton);
-            this.splitContainer1.Panel2.Controls.Add(this.VehicleLabel);
-            this.splitContainer1.Panel2.Controls.Add(this.VehiclesDropDown);
+            this.splitContainer1.Panel2.Controls.Add(this.ShipLabel);
+            this.splitContainer1.Panel2.Controls.Add(this.ShipsDropDown);
             this.splitContainer1.Panel2.Controls.Add(this.UsernameLabel);
             this.splitContainer1.Panel2.Controls.Add(this.UsernameTextBox);
             this.splitContainer1.Size = new System.Drawing.Size(916, 624);
@@ -240,25 +240,25 @@ namespace CosmosInvaders.Client
             this.ConnectButton.Text = "Connect";
             this.ConnectButton.Click += new System.EventHandler(this.ConnectButton_Click);
             // 
-            // VehicleLabel
+            // ShipLabel
             // 
-            this.VehicleLabel.AutoSize = true;
-            this.VehicleLabel.Location = new System.Drawing.Point(6, 48);
-            this.VehicleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.VehicleLabel.Name = "VehicleLabel";
-            this.VehicleLabel.Size = new System.Drawing.Size(42, 13);
-            this.VehicleLabel.TabIndex = 4;
-            this.VehicleLabel.Text = "Vehicle";
+            this.ShipLabel.AutoSize = true;
+            this.ShipLabel.Location = new System.Drawing.Point(6, 48);
+            this.ShipLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.ShipLabel.Name = "ShipLabel";
+            this.ShipLabel.Size = new System.Drawing.Size(42, 13);
+            this.ShipLabel.TabIndex = 4;
+            this.ShipLabel.Text = "Ship";
             // 
-            // VehiclesDropDown
+            // ShipsDropDown
             // 
-            this.VehiclesDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.VehiclesDropDown.FormattingEnabled = true;
-            this.VehiclesDropDown.Location = new System.Drawing.Point(65, 46);
-            this.VehiclesDropDown.Margin = new System.Windows.Forms.Padding(2);
-            this.VehiclesDropDown.Name = "VehiclesDropDown";
-            this.VehiclesDropDown.Size = new System.Drawing.Size(106, 21);
-            this.VehiclesDropDown.TabIndex = 2;
+            this.ShipsDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ShipsDropDown.FormattingEnabled = true;
+            this.ShipsDropDown.Location = new System.Drawing.Point(65, 46);
+            this.ShipsDropDown.Margin = new System.Windows.Forms.Padding(2);
+            this.ShipsDropDown.Name = "ShipsDropDown";
+            this.ShipsDropDown.Size = new System.Drawing.Size(106, 21);
+            this.ShipsDropDown.TabIndex = 2;
             // 
             // UsernameLabel
             // 
@@ -304,8 +304,8 @@ namespace CosmosInvaders.Client
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Label UsernameLabel;
         private System.Windows.Forms.TextBox UsernameTextBox;
-        private System.Windows.Forms.Label VehicleLabel;
-        private System.Windows.Forms.ComboBox VehiclesDropDown;
+        private System.Windows.Forms.Label ShipLabel;
+        private System.Windows.Forms.ComboBox ShipsDropDown;
         private System.Windows.Forms.Label StatusDescriptionLabel;
         private System.Windows.Forms.Label StatusLabel;
         private System.Windows.Forms.Button ConnectButton;

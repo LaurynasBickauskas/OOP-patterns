@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace CosmosInvaders.Client.Visitor
 {
-    public interface IVehicleTypeVisitor
+    public interface IShipTypeVisitor
     {
         Bitmap Visit(Bikes.Bicycle bicycle, DrivingDirection direction);
 

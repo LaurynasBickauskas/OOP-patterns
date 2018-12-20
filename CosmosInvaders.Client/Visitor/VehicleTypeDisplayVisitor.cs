@@ -4,69 +4,69 @@ using CosmosInvaders.Library;
 
 namespace CosmosInvaders.Client.Visitor
 {
-    public class VehicleTypeDisplayVisitor : IVehicleTypeVisitor
+    public class ShipTypeDisplayVisitor : IShipTypeVisitor
     {
-        private IImage VehicleL;
-        private IImage VehicleB;
-        private IImage VehicleR;
-        private IImage VehicleF;
+        private IImage ShipL;
+        private IImage ShipB;
+        private IImage ShipR;
+        private IImage ShipF;
 
         public Bitmap Visit(Bikes.Bicycle bicycle, DrivingDirection direction)
         {
-            VehicleL = ProxyImageFactory.GetProxyImage(@"..\..\Images\bicycleL.png");
-            VehicleB = ProxyImageFactory.GetProxyImage(@"..\..\Images\bicycleB.png");
-            VehicleF = ProxyImageFactory.GetProxyImage(@"..\..\Images\bicycleF.png");
-            VehicleR = ProxyImageFactory.GetProxyImage(@"..\..\Images\bicycleR.png");
+            ShipL = ProxyImageFactory.GetProxyImage(@"..\..\Images\bicycleL.png");
+            ShipB = ProxyImageFactory.GetProxyImage(@"..\..\Images\bicycleB.png");
+            ShipF = ProxyImageFactory.GetProxyImage(@"..\..\Images\bicycleF.png");
+            ShipR = ProxyImageFactory.GetProxyImage(@"..\..\Images\bicycleR.png");
 
             return DirectionSwitcher(direction);
         }
 
         public Bitmap Visit(Bikes.Motorbike motorbike, DrivingDirection direction)
         {
-            VehicleL = ProxyImageFactory.GetProxyImage(@"..\..\Images\motorbikeL.png");
-            VehicleB = ProxyImageFactory.GetProxyImage(@"..\..\Images\motorbikeB.png");
-            VehicleF = ProxyImageFactory.GetProxyImage(@"..\..\Images\motorbikeF.png");
-            VehicleR = ProxyImageFactory.GetProxyImage(@"..\..\Images\motorbikeR.png");
+            ShipL = ProxyImageFactory.GetProxyImage(@"..\..\Images\motorbikeL.png");
+            ShipB = ProxyImageFactory.GetProxyImage(@"..\..\Images\motorbikeB.png");
+            ShipF = ProxyImageFactory.GetProxyImage(@"..\..\Images\motorbikeF.png");
+            ShipR = ProxyImageFactory.GetProxyImage(@"..\..\Images\motorbikeR.png");
 
             return DirectionSwitcher(direction);
         }
 
         public Bitmap Visit(Bikes.Quad quad, DrivingDirection direction)
         {
-            VehicleL = ProxyImageFactory.GetProxyImage(@"..\..\Images\quadL.png");
-            VehicleB = ProxyImageFactory.GetProxyImage(@"..\..\Images\quadB.png");
-            VehicleF = ProxyImageFactory.GetProxyImage(@"..\..\Images\quadF.png");
-            VehicleR = ProxyImageFactory.GetProxyImage(@"..\..\Images\quadR.png");
+            ShipL = ProxyImageFactory.GetProxyImage(@"..\..\Images\quadL.png");
+            ShipB = ProxyImageFactory.GetProxyImage(@"..\..\Images\quadB.png");
+            ShipF = ProxyImageFactory.GetProxyImage(@"..\..\Images\quadF.png");
+            ShipR = ProxyImageFactory.GetProxyImage(@"..\..\Images\quadR.png");
 
             return DirectionSwitcher(direction);
         }
 
         public Bitmap Visit(Cars.Jeep jeep, DrivingDirection direction)
         {
-            VehicleL = ProxyImageFactory.GetProxyImage(@"..\..\Images\jeepL.png");
-            VehicleB = ProxyImageFactory.GetProxyImage(@"..\..\Images\jeepB.png");
-            VehicleF = ProxyImageFactory.GetProxyImage(@"..\..\Images\jeepF.png");
-            VehicleR = ProxyImageFactory.GetProxyImage(@"..\..\Images\jeepR.png");
+            ShipL = ProxyImageFactory.GetProxyImage(@"..\..\Images\jeepL.png");
+            ShipB = ProxyImageFactory.GetProxyImage(@"..\..\Images\jeepB.png");
+            ShipF = ProxyImageFactory.GetProxyImage(@"..\..\Images\jeepF.png");
+            ShipR = ProxyImageFactory.GetProxyImage(@"..\..\Images\jeepR.png");
 
             return DirectionSwitcher(direction);
         }
 
         public Bitmap Visit(Cars.RaceCar careCar, DrivingDirection direction)
         {
-            VehicleL = ProxyImageFactory.GetProxyImage(@"..\..\Images\carL.png");
-            VehicleB = ProxyImageFactory.GetProxyImage(@"..\..\Images\carB.png");
-            VehicleF = ProxyImageFactory.GetProxyImage(@"..\..\Images\carF.png");
-            VehicleR = ProxyImageFactory.GetProxyImage(@"..\..\Images\carR.png");
+            ShipL = ProxyImageFactory.GetProxyImage(@"..\..\Images\carL.png");
+            ShipB = ProxyImageFactory.GetProxyImage(@"..\..\Images\carB.png");
+            ShipF = ProxyImageFactory.GetProxyImage(@"..\..\Images\carF.png");
+            ShipR = ProxyImageFactory.GetProxyImage(@"..\..\Images\carR.png");
 
             return DirectionSwitcher(direction);
         }
 
         public Bitmap Visit(Cars.Truck truck, DrivingDirection direction)
         {
-            VehicleL = ProxyImageFactory.GetProxyImage(@"..\..\Images\truckL.png");
-            VehicleB = ProxyImageFactory.GetProxyImage(@"..\..\Images\truckB.png");
-            VehicleF = ProxyImageFactory.GetProxyImage(@"..\..\Images\truckF.png");
-            VehicleR = ProxyImageFactory.GetProxyImage(@"..\..\Images\truckR.png");
+            ShipL = ProxyImageFactory.GetProxyImage(@"..\..\Images\truckL.png");
+            ShipB = ProxyImageFactory.GetProxyImage(@"..\..\Images\truckB.png");
+            ShipF = ProxyImageFactory.GetProxyImage(@"..\..\Images\truckF.png");
+            ShipR = ProxyImageFactory.GetProxyImage(@"..\..\Images\truckR.png");
 
             return DirectionSwitcher(direction);
         }
@@ -76,16 +76,16 @@ namespace CosmosInvaders.Client.Visitor
             switch (direction)
             {
                 case DrivingDirection.Left:
-                    return VehicleL.GetImage();
+                    return ShipL.GetImage();
 
                 case DrivingDirection.Up:
-                    return VehicleF.GetImage();
+                    return ShipF.GetImage();
 
                 case DrivingDirection.Right:
-                    return VehicleR.GetImage();
+                    return ShipR.GetImage();
 
                 case DrivingDirection.Down:
-                    return VehicleB.GetImage();
+                    return ShipB.GetImage();
 
                 default:
                     return null;

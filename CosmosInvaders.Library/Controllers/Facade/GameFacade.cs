@@ -11,7 +11,7 @@ namespace CosmosInvaders.Library
         /// </summary>
         private Game _instance { get; set; }
 
-        public List<Vehicle> Vehicles => _instance.Vehicles;
+        public List<Ship> Ships => _instance.Ships;
 
         public string message { get; set; } = "";
 
@@ -25,20 +25,20 @@ namespace CosmosInvaders.Library
         /// Zaidejas prisijungia, taigi pagal jo varda sukuriama transporto priemone
         /// </summary>
         /// <param name="playerName">Zaidejo vardas</param>
-        /// <param name="vehicleFamily">Zaidejo pasirinkta transporto priemones seima (pvz. Bike)</param>
-        /// <param name="vehicleType">Zaidejo pasirinktas transporto priemones tipas pagal seima (pvz. Motorbike)</param>
+        /// <param name="shipFamily">Zaidejo pasirinkta transporto priemones seima (pvz. Bike)</param>
+        /// <param name="shipType">Zaidejo pasirinktas transporto priemones tipas pagal seima (pvz. Motorbike)</param>
         /// <returns></returns>
-        public Vehicle Connected(string playerName, string vehicleFamily, string vehicleType)
+        public Ship Connected(string playerName, string shipFamily, string shipType)
         {
-            _instance.AddVehicle(playerName, vehicleFamily, vehicleType);
-            return GetVehicleByPlayerName(playerName);
+            _instance.AddShip(playerName, shipFamily, shipType);
+            return GetShipByPlayerName(playerName);
         }
 
         public void Disconnect(string playerName)
         {
-            Vehicle vehicteToDelete = GetVehicleByPlayerName(playerName);
-            _instance.ObservableVehicles.Remove(vehicteToDelete);
-            _instance.Vehicles.Remove(vehicteToDelete);
+            Ship vehicteToDelete = GetShipByPlayerName(playerName);
+            _instance.ObservableShips.Remove(vehicteToDelete);
+            _instance.Ships.Remove(vehicteToDelete);
         }
 
         /// <summary>
@@ -47,8 +47,8 @@ namespace CosmosInvaders.Library
         /// <param name="playerName"></param>
         public void PlayerJoinedTheGame(string playerName)
         {
-            Vehicle vehicle = GetVehicleByPlayerName(playerName);
-            _instance.ObservableVehicles.Add(vehicle);
+            Ship ship = GetShipByPlayerName(playerName);
+            _instance.ObservableShips.Add(ship);
         }
 
         /// <summary>
@@ -58,13 +58,13 @@ namespace CosmosInvaders.Library
         /// <param name="playerName">Zaidejo kurio masina judinama vardas</param>
         /// <param name="key">Paspaustas mygtukas</param>
         /// <returns>Transporto priemone su visa savo informacija</returns>
-        public Vehicle Move(string playerName, char key)
+        public Ship Move(string playerName, char key)
         {
-            Vehicle vehicle = GetVehicleByPlayerName(playerName);
-            ICommand turnLeft = new TurnLeftCommand(vehicle);
-            ICommand turnRight = new TurnRightCommand(vehicle);
-            ICommand speedUp = new SpeedUpCommand(vehicle);
-            ICommand slowDown = new SlowDownCommand(vehicle);
+            Ship ship = GetShipByPlayerName(playerName);
+            ICommand turnLeft = new TurnLeftCommand(ship);
+            ICommand turnRight = new TurnRightCommand(ship);
+            ICommand speedUp = new SpeedUpCommand(ship);
+            ICommand slowDown = new SlowDownCommand(ship);
 
             MovementSwitcher movementSwitcher = new MovementSwitcher(turnLeft, turnRight, speedUp, slowDown);
             switch (key.ToString().ToLower())
@@ -83,7 +83,7 @@ namespace CosmosInvaders.Library
                     break;
             }
 
-            return vehicle;
+            return ship;
         }
 
         /// <summary>
@@ -119,12 +119,12 @@ namespace CosmosInvaders.Library
             return mapObstacles;
         }
 
-        public async Task<List<Vehicle>> CheckForMovements(string playerName)
+        public async Task<List<Ship>> CheckForMovements(string playerName)
         {
-            Vehicle playerVehicle = GetVehicleByPlayerName(playerName);
-            await Task.Run(() => playerVehicle.IsUpdated());
-            playerVehicle.SomeoneChangedState = false;
-            return _instance.Vehicles;
+            Ship playerShip = GetShipByPlayerName(playerName);
+            await Task.Run(() => playerShip.IsUpdated());
+            playerShip.SomeoneChangedState = false;
+            return _instance.Ships;
         }
 
         /// <summary>
@@ -132,16 +132,16 @@ namespace CosmosInvaders.Library
         /// </summary>
         /// <param name="playerName">Zaidejo vardas</param>
         /// <returns>Zaidejo transporto priemones objektas</returns>
-        private Vehicle GetVehicleByPlayerName(string playerName)
+        private Ship GetShipByPlayerName(string playerName)
         {
-            return _instance.Vehicles.Select(x => x).Where(x => x.PlayerName == playerName).FirstOrDefault();
+            return _instance.Ships.Select(x => x).Where(x => x.PlayerName == playerName).FirstOrDefault();
         }
 
 
         public System.Tuple<string, string> PlayerSentMessage(string playerName, string message)
         {
-            Vehicle vehicle = GetVehicleByPlayerName(playerName);
-            return vehicle.SendMessage(message);
+            Ship ship = GetShipByPlayerName(playerName);
+            return ship.SendMessage(message);
         }
     }
 }

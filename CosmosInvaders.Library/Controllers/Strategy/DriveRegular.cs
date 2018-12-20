@@ -11,7 +11,7 @@ namespace CosmosInvaders.Library
 
         protected override void NotifyOtherCars()
         {
-            Game.Instance.ObservableVehicles.NotifyAll();
+            Game.Instance.ObservableShips.NotifyAll();
         }
     }
 }

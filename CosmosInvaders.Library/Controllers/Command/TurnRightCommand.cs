@@ -2,16 +2,16 @@
 {
     public class TurnRightCommand : ICommand
     {
-        IMovable _vehicle { get; set; }
+        IMovable _ship { get; set; }
 
-        public TurnRightCommand(IMovable vehicle)
+        public TurnRightCommand(IMovable ship)
         {
-            _vehicle = vehicle;
+            _ship = ship;
         }
 
         public void Execute()
         {
-            _vehicle.ChangeDirection(TurnTo.Right);
+            _ship.ChangeDirection(TurnTo.Right);
         }
     }
 }

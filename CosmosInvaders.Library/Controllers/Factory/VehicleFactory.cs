@@ -3,39 +3,39 @@
     /// <summary>
     /// Abstract factory
     /// </summary>
-	public class VehicleFactory : AbstractVehicleFactory
+	public class ShipFactory : AbstractShipFactory
     {
         RangerFactory _rangerFactory { get; set; }
         DestroyerFactory _destroyerFactory { get; set; }
 
-        public VehicleFactory()
+        public ShipFactory()
         {
             _rangerFactory = new RangerFactory();
             _destroyerFactory = new DestroyerFactory();
         }
 
         /// <summary>
-        /// Get vehicle
+        /// Get ship
         /// </summary>
-		public override Vehicle GetVehicle(string playerName, string family, string type)
+		public override Ship GetShip(string playerName, string family, string type)
         {
-            Vehicle vehicle = null;
+            Ship ship = null;
             switch (family)
             {
                 case "Ranger":
-                    vehicle = (Vehicle)_rangerFactory.GetRanger(type);
-                    vehicle.SetCoordinates(200, 200);
-                    vehicle.PlayerName = playerName;
-                    vehicle.HealthPoints = vehicle.MaxHealthPoints;
-                    return vehicle;
+                    ship = (Ship)_rangerFactory.GetRanger(type);
+                    ship.SetCoordinates(200, 200);
+                    ship.PlayerName = playerName;
+                    ship.HealthPoints = ship.MaxHealthPoints;
+                    return ship;
                 case "Destroyer":
-                    vehicle = (Vehicle)_destroyerFactory.GetDestroyer(type);
-                    vehicle.SetCoordinates(200, 200);
-                    vehicle.PlayerName = playerName;
-                    vehicle.HealthPoints = vehicle.MaxHealthPoints;
-                    return vehicle;
+                    ship = (Ship)_destroyerFactory.GetDestroyer(type);
+                    ship.SetCoordinates(200, 200);
+                    ship.PlayerName = playerName;
+                    ship.HealthPoints = ship.MaxHealthPoints;
+                    return ship;
                 default:
-                    return vehicle;
+                    return ship;
             }
         }
 

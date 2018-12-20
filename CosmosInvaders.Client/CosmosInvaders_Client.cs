@@ -36,7 +36,7 @@ namespace CosmosInvaders.Client
                 new MediaTypeWithQualityHeaderValue("application/json"));
 
             _instance = Game.Instance;
-            VehiclesDropDown.DataSource = new List<string>
+            ShipsDropDown.DataSource = new List<string>
             {
                 "Small ship",
                 "Medium ship",
@@ -45,8 +45,8 @@ namespace CosmosInvaders.Client
 
             ChatHub = new WSConnection(_instance, GameDraw);
             ChatHub.GetUserName += () => UsernameTextBox.Text;
-            ChatHub.GetUserFamily += () => getFamilyFromSelection(VehiclesDropDown.SelectedValue.ToString());
-            ChatHub.GetUserVehicle += () => VehiclesDropDown.SelectedValue.ToString();
+            ChatHub.GetUserFamily += () => getFamilyFromSelection(ShipsDropDown.SelectedValue.ToString());
+            ChatHub.GetUserShip += () => ShipsDropDown.SelectedValue.ToString();
             ChatHub.SetSpeed += (speed) => Invoker(SpeedValue, speed);
             ChatHub.SetDirection += (direction) => Invoker(DirectionValue, direction);
             ChatHub.SetLog += (text) => Invoker(OutputLog, text);
@@ -131,11 +131,11 @@ namespace CosmosInvaders.Client
             g.DrawRectangle(Pens.Yellow, lightL);
             g.DrawRectangle(Pens.Yellow, lightR);
         }
-        private string getFamilyFromSelection(string vehicle)
+        private string getFamilyFromSelection(string ship)
         {
             string family = "";
             // Kreipimasis i api
-            switch (VehiclesDropDown.SelectedValue)
+            switch (ShipsDropDown.SelectedValue)
             {
                 case "Small ship":
                     family = "Ranger";
@@ -153,19 +153,19 @@ namespace CosmosInvaders.Client
             //Validacija
             if (UsernameTextBox.Text == "")
                 return;
-            if (VehiclesDropDown.SelectedValue == "")
+            if (ShipsDropDown.SelectedValue == "")
                 return;
 
             // Lauku isjungimas
             UsernameLabel.Enabled = false;
             UsernameTextBox.Enabled = false;
-            VehicleLabel.Enabled = false;
-            VehiclesDropDown.Enabled = false;
+            ShipLabel.Enabled = false;
+            ShipsDropDown.Enabled = false;
             ConnectButton.Enabled = false;
 
 
             ChatHub.Start();
-            ChatHub.Connect(UsernameTextBox.Text, getFamilyFromSelection(VehiclesDropDown.SelectedValue.ToString()), VehiclesDropDown.SelectedValue.ToString());
+            ChatHub.Connect(UsernameTextBox.Text, getFamilyFromSelection(ShipsDropDown.SelectedValue.ToString()), ShipsDropDown.SelectedValue.ToString());
 
             StatusDescriptionLabel.Text = "Connected";
             message.ReadOnly = false;
@@ -210,27 +210,27 @@ namespace CosmosInvaders.Client
                     return;
             }
 
-            //Vehicle clientVehicle = _instance.Vehicles.Find(x => x.PlayerName == UsernameTextBox.Text);
+            //Ship clientShip = _instance.Ships.Find(x => x.PlayerName == UsernameTextBox.Text);
             //HttpResponseMessage response = await client.GetAsync($"game/move/{UsernameTextBox.Text}/{moveTo}");
             //string json = await response.Content.ReadAsAsync<string>() + "\n";
             //OutputLog.Text += "----------\n" + json;
-            //Vehicle serverVehicle = JsonConvert.DeserializeObject<Vehicle>(json);
+            //Ship serverShip = JsonConvert.DeserializeObject<Ship>(json);
 
             //if (!turn)
             //{
-            //    clientVehicle.Speed = serverVehicle.Speed;
-            //    clientVehicle.CoordinateX = serverVehicle.CoordinateX;
-            //    clientVehicle.CoordinateY = serverVehicle.CoordinateY;
+            //    clientShip.Speed = serverShip.Speed;
+            //    clientShip.CoordinateX = serverShip.CoordinateX;
+            //    clientShip.CoordinateY = serverShip.CoordinateY;
 
-            //    SpeedValue.Text = serverVehicle.Speed.ToString();
+            //    SpeedValue.Text = serverShip.Speed.ToString();
 
-            //    GameDraw.DrawCar(clientVehicle.CoordinateX, clientVehicle.CoordinateY);
+            //    GameDraw.DrawCar(clientShip.CoordinateX, clientShip.CoordinateY);
             //}
             //else
             //{
-            //    clientVehicle.DrivingDirection = serverVehicle.DrivingDirection;
-            //    DirectionValue.Text = serverVehicle.DrivingDirection.ToString();
-            //    GameDraw.TurnCar(clientVehicle.DrivingDirection);
+            //    clientShip.DrivingDirection = serverShip.DrivingDirection;
+            //    DirectionValue.Text = serverShip.DrivingDirection.ToString();
+            //    GameDraw.TurnCar(clientShip.DrivingDirection);
             //}
 
             ChatHub.Move(UsernameTextBox.Text, moveTo);

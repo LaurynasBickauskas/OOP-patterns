@@ -1,6 +1,6 @@
 namespace CosmosInvaders.Library
 {
-    public class SmallShip : Vehicle, IRanger
+    public class SmallShip : Ship, IRanger
     {
         private const int _maxHealthPoints = 70;
         private const int _maxSpeed = 50;

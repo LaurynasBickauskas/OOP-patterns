@@ -2,16 +2,16 @@
 {
     public class SlowDownCommand : ICommand
     {
-        IMovable _vehicle { get; set; }
+        IMovable _ship { get; set; }
 
-        public SlowDownCommand(IMovable vehicle)
+        public SlowDownCommand(IMovable ship)
         {
-            _vehicle = vehicle;
+            _ship = ship;
         }
 
         public void Execute()
         {
-            _vehicle.ChangeSpeed(false);
+            _ship.ChangeSpeed(false);
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace CosmosInvaders.Library
 {
-    public class Vehicle : IObserver, IMovable
+    public class Ship : IObserver, IMovable
     {
         public string PlayerName { get; set; }
         public int MaxSpeed { get; set; }
@@ -19,7 +19,7 @@ namespace CosmosInvaders.Library
         public int CoordinateX { get; set; }
         public int CoordinateY { get; set; }
 
-        public Vehicle()
+        public Ship()
         {
 
         }

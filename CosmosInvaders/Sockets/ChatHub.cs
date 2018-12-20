@@ -12,16 +12,16 @@ namespace CosmosInvaders
     {
         private GameFacade _gameFacade { get; set; } = new GameFacade();
 
-        public void Connect(string playerName, string vehicleFamily, string vehicleType)
+        public void Connect(string playerName, string shipFamily, string shipType)
         {
-            Vehicle playerVehicle = _gameFacade.Connected(playerName, vehicleFamily, vehicleType);
+            Ship playerShip = _gameFacade.Connected(playerName, shipFamily, shipType);
 
             Clients.Caller.Connected(
-                JsonConvert.SerializeObject(_gameFacade.Vehicles)
+                JsonConvert.SerializeObject(_gameFacade.Ships)
                 );
 
             Clients.All.Moved(
-                JsonConvert.SerializeObject(playerVehicle)
+                JsonConvert.SerializeObject(playerShip)
                 );
         }
 
@@ -33,8 +33,8 @@ namespace CosmosInvaders
 
         public void Move(string playerName, char key)
         {
-            Vehicle vehicle = _gameFacade.Move(playerName, key);
-            Clients.All.Moved(JsonConvert.SerializeObject(vehicle));
+            Ship ship = _gameFacade.Move(playerName, key);
+            Clients.All.Moved(JsonConvert.SerializeObject(ship));
 
         }
 

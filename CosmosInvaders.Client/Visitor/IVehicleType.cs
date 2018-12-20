@@ -3,8 +3,8 @@ using System.Drawing;
 
 namespace CosmosInvaders.Client.Visitor
 {
-    public interface IVehicleType
+    public interface IShipType
     {
-        Bitmap Display(IVehicleTypeVisitor vehicleTypeVisitor, DrivingDirection direction);
+        Bitmap Display(IShipTypeVisitor shipTypeVisitor, DrivingDirection direction);
     }
 }

@@ -39,7 +39,7 @@ namespace CosmosInvaders.Client
             Canvas = canvas;
         }
 
-        public void DrawShips(List<Vehicle> ships)
+        public void DrawShips(List<Ship> ships)
         {
             _ships = ships
                 .Select(x => new MinimalShip
@@ -92,28 +92,28 @@ namespace CosmosInvaders.Client
             switch (maxSpeed)
             {
                 case 10:
-                    IVehicleType bicycleType = new Visitor.Bikes.Bicycle();
-                    return bicycleType.Display(new VehicleTypeDisplayVisitor(), direction);
+                    IShipType bicycleType = new Visitor.Bikes.Bicycle();
+                    return bicycleType.Display(new ShipTypeDisplayVisitor(), direction);
 
                 case 20:
-                    IVehicleType motorbikeType = new Visitor.Bikes.Motorbike();
-                    return motorbikeType.Display(new VehicleTypeDisplayVisitor(), direction);
+                    IShipType motorbikeType = new Visitor.Bikes.Motorbike();
+                    return motorbikeType.Display(new ShipTypeDisplayVisitor(), direction);
 
                 case 30:
-                    IVehicleType quadType = new Visitor.Bikes.Quad();
-                    return quadType.Display(new VehicleTypeDisplayVisitor(), direction);
+                    IShipType quadType = new Visitor.Bikes.Quad();
+                    return quadType.Display(new ShipTypeDisplayVisitor(), direction);
 
                 case 40:
-                    IVehicleType truckType = new Visitor.Cars.Truck();
-                    return truckType.Display(new VehicleTypeDisplayVisitor(), direction);
+                    IShipType truckType = new Visitor.Cars.Truck();
+                    return truckType.Display(new ShipTypeDisplayVisitor(), direction);
 
                 case 50:
-                    IVehicleType jeepType = new Visitor.Cars.Jeep();
-                    return jeepType.Display(new VehicleTypeDisplayVisitor(), direction);
+                    IShipType jeepType = new Visitor.Cars.Jeep();
+                    return jeepType.Display(new ShipTypeDisplayVisitor(), direction);
 
                 case 60:
-                    IVehicleType raceCarType = new Visitor.Cars.RaceCar();
-                    return raceCarType.Display(new VehicleTypeDisplayVisitor(), direction);
+                    IShipType raceCarType = new Visitor.Cars.RaceCar();
+                    return raceCarType.Display(new ShipTypeDisplayVisitor(), direction);
             }
             return null;
         }

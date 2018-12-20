@@ -8,9 +8,9 @@ namespace CosmosInvaders.Library
 {
     class ChatRoom
     {
-        public static Tuple<string, string> ShowMessage(Vehicle vehicle, string message)
+        public static Tuple<string, string> ShowMessage(Ship ship, string message)
         {      
-                string userMessage = DateTime.Now.ToString("HH:mm:ss") + " [" + vehicle.PlayerName + "]: " + message + " ";
+                string userMessage = DateTime.Now.ToString("HH:mm:ss") + " [" + ship.PlayerName + "]: " + message + " ";
                 return Tuple.Create(userMessage, "");
 
         }

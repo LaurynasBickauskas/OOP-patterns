@@ -20,27 +20,27 @@ namespace CosmosInvaders.Library
             }
         }
 
-        public List<Vehicle> Vehicles { get; set; }
+        public List<Ship> Ships { get; set; }
 
-        private AbstractVehicleFactory _abstractVehicleFactory { get; set; }
+        private AbstractShipFactory _abstractShipFactory { get; set; }
 
-        public IObservable ObservableVehicles { get; set; }
+        public IObservable ObservableShips { get; set; }
 
         private Game()
         {
-            Vehicles = new List<Vehicle>();
-            _abstractVehicleFactory = new VehicleFactory();
-            ObservableVehicles = new ObservableVehicles(this);
+            Ships = new List<Ship>();
+            _abstractShipFactory = new ShipFactory();
+            ObservableShips = new ObservableShips(this);
         }
 
-        public void AddVehicle(string playerName, string family, string type)
+        public void AddShip(string playerName, string family, string type)
         {
-            Vehicles.Add(_abstractVehicleFactory.GetVehicle(playerName, family, type));
+            Ships.Add(_abstractShipFactory.GetShip(playerName, family, type));
         }
 
-        public void UpdateVehicle()
+        public void UpdateShip()
         {
-            // TODO: update instance ( pagal dabar tai kad atnaujintu visus vehicle)
+            // TODO: update instance ( pagal dabar tai kad atnaujintu visus ship)
         }
         
     }

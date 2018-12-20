@@ -23,7 +23,7 @@ namespace CosmosInvaders.Client
         private IDraw GameDraw { get; set; }
         private string PlayerName => GetUserName();
         private string PlayerFamily => GetUserFamily();
-        private string PlayerVehicle => GetUserVehicle();
+        private string PlayerShip => GetUserShip();
 
         public delegate string GetStringDelegate();
 
@@ -31,7 +31,7 @@ namespace CosmosInvaders.Client
 
         public event GetStringDelegate GetUserFamily;
 
-        public event GetStringDelegate GetUserVehicle;
+        public event GetStringDelegate GetUserShip;
 
         public delegate void SetStringDelegate(string text);
 
@@ -109,7 +109,7 @@ namespace CosmosInvaders.Client
         {
             try
             {
-                return game.Vehicles[index].PlayerName;
+                return game.Ships[index].PlayerName;
             }
             catch { }
             return "";
@@ -137,31 +137,31 @@ namespace CosmosInvaders.Client
 
         private void StartSingleCarListener()
         {
-            hub.On("SingleCar", (vehicle) =>
+            hub.On("SingleCar", (ship) =>
             {
-                string playerName = (vehicle as Vehicle).PlayerName;
-                Vehicle localVehicle = game.Vehicles.Find(x => x.PlayerName == playerName);
-                localVehicle = vehicle;
+                string playerName = (ship as Ship).PlayerName;
+                Ship localShip = game.Ships.Find(x => x.PlayerName == playerName);
+                localShip = ship;
             });
         }
 
         private void StartConnectedListener()
         {
-            hub.On("Connected", (vehicles) =>
+            hub.On("Connected", (ships) =>
             {
-                game.Vehicles = new List<Vehicle>();
-                List<Vehicle> serverVehicles = JsonConvert.DeserializeObject<List<Vehicle>>(vehicles);
-                foreach (Vehicle v in serverVehicles)
+                game.Ships = new List<Ship>();
+                List<Ship> serverShips = JsonConvert.DeserializeObject<List<Ship>>(ships);
+                foreach (Ship v in serverShips)
                 {
-                    game.Vehicles.Add(v);
+                    game.Ships.Add(v);
                 }
 
-                Vehicle localVehicle = serverVehicles.Find(x => x.PlayerName == PlayerName);
-                localVehicle.CoordinateY = 200;
-                localVehicle.CoordinateX = 200;
+                Ship localShip = serverShips.Find(x => x.PlayerName == PlayerName);
+                localShip.CoordinateY = 200;
+                localShip.CoordinateX = 200;
 
-                GameDraw.DrawShips(serverVehicles);
-                SetLog(JsonConvert.SerializeObject(serverVehicles.Select(x => x.PlayerName)));
+                GameDraw.DrawShips(serverShips);
+                SetLog(JsonConvert.SerializeObject(serverShips.Select(x => x.PlayerName)));
             });
         }
 
@@ -176,10 +176,10 @@ namespace CosmosInvaders.Client
         {
             hub.On("Disconnected", (playerName) =>
             {
-                Vehicle vehicteToDelete = game.Vehicles.FirstOrDefault(x => x.PlayerName == playerName);
-                game.ObservableVehicles.Remove(vehicteToDelete);
-                game.Vehicles.Remove(vehicteToDelete);
-                GameDraw.DrawShips(game.Vehicles);
+                Ship vehicteToDelete = game.Ships.FirstOrDefault(x => x.PlayerName == playerName);
+                game.ObservableShips.Remove(vehicteToDelete);
+                game.Ships.Remove(vehicteToDelete);
+                GameDraw.DrawShips(game.Ships);
             });
         }
 
@@ -187,31 +187,31 @@ namespace CosmosInvaders.Client
 
         private void StartMovedListener()
         {
-            hub.On("Moved", (vehicle) =>
+            hub.On("Moved", (ship) =>
             {
-                if (game.Vehicles.Count == 0)
+                if (game.Ships.Count == 0)
                     return;
 
-                Vehicle serverVehicle = JsonConvert.DeserializeObject<Vehicle>(vehicle);
-                Vehicle playerVehicle = game.Vehicles.Find(x => x.PlayerName == serverVehicle.PlayerName);
-                if (playerVehicle == null)
+                Ship serverShip = JsonConvert.DeserializeObject<Ship>(ship);
+                Ship playerShip = game.Ships.Find(x => x.PlayerName == serverShip.PlayerName);
+                if (playerShip == null)
                 {
-                    game.Vehicles.Add(serverVehicle);
-                    playerVehicle = game.Vehicles.Find(x => x.PlayerName == serverVehicle.PlayerName);
-                    SetLog(JsonConvert.SerializeObject(game.Vehicles.Select(x => x.PlayerName)));
+                    game.Ships.Add(serverShip);
+                    playerShip = game.Ships.Find(x => x.PlayerName == serverShip.PlayerName);
+                    SetLog(JsonConvert.SerializeObject(game.Ships.Select(x => x.PlayerName)));
                 }
 
-                playerVehicle.CoordinateX = serverVehicle.CoordinateX;
-                playerVehicle.CoordinateY = serverVehicle.CoordinateY;
-                playerVehicle.DrivingDirection = serverVehicle.DrivingDirection;
+                playerShip.CoordinateX = serverShip.CoordinateX;
+                playerShip.CoordinateY = serverShip.CoordinateY;
+                playerShip.DrivingDirection = serverShip.DrivingDirection;
 
-                if (serverVehicle.PlayerName == PlayerName)
+                if (serverShip.PlayerName == PlayerName)
                 {
-                    SetSpeed(serverVehicle.Speed.ToString());
-                    SetDirection(serverVehicle.DrivingDirection.ToString());
+                    SetSpeed(serverShip.Speed.ToString());
+                    SetDirection(serverShip.DrivingDirection.ToString());
                 }
 
-                GameDraw.DrawShips(game.Vehicles);
+                GameDraw.DrawShips(game.Ships);
             });
         }
 
@@ -237,7 +237,7 @@ namespace CosmosInvaders.Client
         {
             hub.On("GotObstacles", (obstacles) =>
             {
-                //<Obstacle> obst = JsonConvert.DeserializeObject<Vehicle>(vehicle);
+                //<Obstacle> obst = JsonConvert.DeserializeObject<Ship>(ship);
             });
         }
 

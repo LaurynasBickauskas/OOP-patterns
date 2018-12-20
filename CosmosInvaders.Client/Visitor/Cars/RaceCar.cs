@@ -3,11 +3,11 @@ using System.Drawing;
 
 namespace CosmosInvaders.Client.Visitor.Cars
 {
-    public class RaceCar : IVehicleType
+    public class RaceCar : IShipType
     {
-        public Bitmap Display(IVehicleTypeVisitor vehicleTypeVisitor, DrivingDirection direction)
+        public Bitmap Display(IShipTypeVisitor shipTypeVisitor, DrivingDirection direction)
         {
-            return vehicleTypeVisitor.Visit(this, direction);
+            return shipTypeVisitor.Visit(this, direction);
         }
     }
 }

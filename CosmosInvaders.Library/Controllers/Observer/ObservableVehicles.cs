@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 namespace CosmosInvaders.Library
 {
-    public class ObservableVehicles : IObservable
+    public class ObservableShips : IObservable
     {
         private List<IObserver> _observers { get; set; }
         private Game _gameInstance { get; set; }
 
-        public ObservableVehicles(Game instance)
+        public ObservableShips(Game instance)
         {
             _observers = new List<IObserver>();
             _gameInstance = instance;

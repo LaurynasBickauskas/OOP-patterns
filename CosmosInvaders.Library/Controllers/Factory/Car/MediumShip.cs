@@ -1,6 +1,6 @@
 namespace CosmosInvaders.Library
 {
-    public class MediumShip : Vehicle, IDestroyer
+    public class MediumShip : Ship, IDestroyer
     {
         private const int _maxHealthPoints = 100;
         private const int _maxSpeed = 30;
