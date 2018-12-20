@@ -70,7 +70,7 @@
     <Compile Include="Controllers\Mediator\ChatRoom.cs" />
     <Compile Include="Controllers\Observer\IObservable.cs" />
     <Compile Include="Controllers\Observer\IObserver.cs" />
-    <Compile Include="Controllers\Observer\ObservableVehicles.cs" />
+    <Compile Include="Controllers\Observer\ObservableShips.cs" />
     <Compile Include="Controllers\Prototype\Obstacle.cs" />
     <Compile Include="Controllers\Prototype\ObstacleCache.cs" />
     <Compile Include="Controllers\Prototype\Rock.cs" />
