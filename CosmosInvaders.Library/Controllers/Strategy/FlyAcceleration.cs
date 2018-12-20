@@ -2,9 +2,9 @@ using System;
 
 namespace CosmosInvaders.Library
 {
-    public class FlyHit : FlyAlgorithm
+    public class FlyAcceleration : FlyAlgorithm
     {
-        public (int x, int y, int speed) Move(int x, int y, FlyingDirection previousDir, FlyingDirection newDir, int speed)
+        public void  Move(ref int x, ref int y, FlyingDirection previousDir, FlyingDirection newDir,ref int speed)
         {
             if(previousDir == newDir)
             {
@@ -24,10 +24,13 @@ namespace CosmosInvaders.Library
                 {
                     x -= (int)speed;
                 }
-                return (x, y, speed++);
+                speed++;
+            }
+            else
+            {
+                speed = 0;
             }
             NotifyOtherDestroyers();
-            return (x, y,speed);
         }
 
 

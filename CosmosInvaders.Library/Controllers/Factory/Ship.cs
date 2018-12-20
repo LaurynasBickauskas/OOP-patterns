@@ -36,9 +36,15 @@ namespace CosmosInvaders.Library
             CurrentDirection = direction;
         }
 
-        private void Fly(FlyAlgorithm algoritm, FlyingDirection newDirection)
+        private void Fly(FlyAlgorithm algorithm, FlyingDirection newDirection)
         {
-            (CoordinateX, CoordinateY,Speed) = algoritm.Move(CoordinateX, CoordinateY,CurrentDirection, newDirection, Speed);
+            int X = CoordinateX;
+            int Y = CoordinateY;
+            int S = Speed;
+            algorithm.Move(ref X,ref  Y,CurrentDirection, newDirection,ref S);
+            CoordinateX = X;
+            CoordinateY = Y;
+            Speed = S;
         }
 
         public void Update()

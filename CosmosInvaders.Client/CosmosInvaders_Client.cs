@@ -23,7 +23,7 @@ namespace CosmosInvaders.Client
         private static HttpClient client = new HttpClient();
         private IDraw GameDraw { get; set; }
         private bool Connected { get; set; } = false;
-        private WSConnection ChatHub { get; set; }
+        private WSConnection ConcreteHub { get; set; }
 
         public CosmosInvaders_Client()
         {
@@ -43,16 +43,16 @@ namespace CosmosInvaders.Client
                 "Big ship"
             };
 
-            ChatHub = new WSConnection(_instance, GameDraw);
-            ChatHub.GetUserName += () => UsernameTextBox.Text;
-            ChatHub.GetUserFamily += () => getFamilyFromSelection(ShipsDropDown.SelectedValue.ToString());
-            ChatHub.GetUserShip += () => ShipsDropDown.SelectedValue.ToString();
-            ChatHub.SetSpeed += (speed) => Invoker(SpeedValue, speed);
-            ChatHub.SetDirection += (direction) => Invoker(DirectionValue, direction);
-            ChatHub.SetLog += (text) => Invoker(OutputLog, text);
-            ChatHub.SetPosLog += (text) => Invoker(positionSaves, text);
-            ChatHub.SetGameLog += (text) => InvokerAppend(logBox, text);
-            ChatHub.SetMessage += (text) => InvokerAppendMessage(messageBox, text);
+            ConcreteHub = new WSConnection(_instance, GameDraw);
+            ConcreteHub.GetUserName += () => UsernameTextBox.Text;
+            ConcreteHub.GetUserFamily += () => getFamilyFromSelection(ShipsDropDown.SelectedValue.ToString());
+            ConcreteHub.GetUserShip += () => ShipsDropDown.SelectedValue.ToString();
+            ConcreteHub.SetSpeed += (speed) => Invoker(SpeedValue, speed);
+            ConcreteHub.SetDirection += (direction) => Invoker(DirectionValue, direction);
+            ConcreteHub.SetLog += (text) => Invoker(OutputLog, text);
+            ConcreteHub.SetPosLog += (text) => Invoker(positionSaves, text);
+            ConcreteHub.SetGameLog += (text) => InvokerAppend(logBox, text);
+            ConcreteHub.SetMessage += (text) => InvokerAppendMessage(messageBox, text);
 
             //GameDraw.DrawMap();
             splitContainer1.Panel1.BackgroundImage = new Bitmap(@"..\..\Map.png");
@@ -164,8 +164,8 @@ namespace CosmosInvaders.Client
             ConnectButton.Enabled = false;
 
 
-            ChatHub.Start();
-            ChatHub.Connect(UsernameTextBox.Text, getFamilyFromSelection(ShipsDropDown.SelectedValue.ToString()), ShipsDropDown.SelectedValue.ToString());
+            ConcreteHub.Start();
+            ConcreteHub.Connect(UsernameTextBox.Text, getFamilyFromSelection(ShipsDropDown.SelectedValue.ToString()), ShipsDropDown.SelectedValue.ToString());
 
             StatusDescriptionLabel.Text = "Connected";
             message.ReadOnly = false;
@@ -233,15 +233,15 @@ namespace CosmosInvaders.Client
             //    GameDraw.TurnCar(clientShip.FlyingDirection);
             //}
 
-            ChatHub.Move(UsernameTextBox.Text, moveTo);
+            ConcreteHub.Move(UsernameTextBox.Text, moveTo);
         }
 
         private void CosmosInvaders_Client_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (Connected)
             {
-                ChatHub.Disconnect();
-                ChatHub.Stop();
+                ConcreteHub.Disconnect();
+                ConcreteHub.Stop();
             }
         }
 
@@ -251,7 +251,7 @@ namespace CosmosInvaders.Client
             string userName = UsernameTextBox.Text;
             if (mes != "" && userName != "")
             {
-                    ChatHub.SendMessage(userName, mes);
+                    ConcreteHub.SendMessage(userName, mes);
             }
             message.Text = "";
         }

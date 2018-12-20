@@ -4,6 +4,6 @@ namespace CosmosInvaders.Library
 {
     public interface FlyAlgorithm
     {
-        (int x, int y, int speed) Move(int x, int y, FlyingDirection previousDir, FlyingDirection newDir, int speed);
+        void Move(ref int x, ref int y, FlyingDirection previousDir, FlyingDirection newDir, ref int speed);
     }
 }
