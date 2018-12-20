@@ -170,10 +170,7 @@ namespace CosmosInvaders.Client
             VehiclesDropDown.Enabled = false;
             ConnectButton.Enabled = false;
 
-            //HttpResponseMessage response = await client.GetAsync($"game/connect/{UsernameTextBox.Text}/{family}/{VehiclesDropDown.SelectedValue}");
-            //string json = await response.Content.ReadAsAsync<string>() + "\n";
-            //OutputLog.Text += json;
-            //_instance.Vehicles.Add(JsonConvert.DeserializeObject<Vehicle>(json));
+
             ChatHub.Start();
             ChatHub.Connect(UsernameTextBox.Text, getFamilyFromSelection(VehiclesDropDown.SelectedValue.ToString()), VehiclesDropDown.SelectedValue.ToString());
 
@@ -282,6 +279,11 @@ namespace CosmosInvaders.Client
         }
 
         private void positionSaves_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void StatusDescriptionLabel_Click(object sender, EventArgs e)
         {
 
         }
