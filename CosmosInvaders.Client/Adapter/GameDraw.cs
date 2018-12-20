@@ -20,52 +20,46 @@ namespace CosmosInvaders.Client
 {
     public class GameDraw : IDraw, IDrawDecorator
     {
-        public class MinimalVehicle
+        public class MinimalShip
         {
-            public int CarX { get; set; }
-            public int CarY { get; set; }
-            public int CarWidth { get; set; } = 20;
-            public int CarHeight { get; set; } = 40;
+            public int ShipX { get; set; }
+            public int ShipY { get; set; }
+            public int ShipWidth { get; set; } = 20;
+            public int ShipHeight { get; set; } = 40;
             public int MaxSpeed { get; set; }
             public DrivingDirection DrivingDirection { get; set; } = DrivingDirection.Up;
         }
 
         public SplitContainer Canvas { get; set; }
-        private List<MinimalVehicle> _vehicles { get; set; }
-        protected List<MinimalVehicle> _tempVehicles { get; set; }
-        private IVehicleTypeVisitor BicycleVisitor = new VehicleTypeDisplayVisitor();
-        private IVehicleTypeVisitor MotorbikeVisitor = new VehicleTypeDisplayVisitor();
-        private IVehicleTypeVisitor QuadVisitor = new VehicleTypeDisplayVisitor();
-        private IVehicleTypeVisitor JeepVisitor = new VehicleTypeDisplayVisitor();
-        private IVehicleTypeVisitor RaceCarVisitor = new VehicleTypeDisplayVisitor();
-        private IVehicleTypeVisitor TruckVisitor = new VehicleTypeDisplayVisitor();
+        private List<MinimalShip> _ships { get; set; }
+        protected List<MinimalShip> _tempShips { get; set; }
 
         public GameDraw(SplitContainer canvas)
         {
             Canvas = canvas;
         }
 
-        public void DrawCars(List<Vehicle> vehicles)
+        public void DrawShips(List<Vehicle> ships)
         {
-            _vehicles = vehicles
-                .Select(x => new MinimalVehicle
+            _ships = ships
+                .Select(x => new MinimalShip
                 {
-                    CarX = x.CoordinateX,
-                    CarY = x.CoordinateY,
+                    ShipX = x.CoordinateX,
+                    ShipY = x.CoordinateY,
                     MaxSpeed = x.MaxSpeed,
                     DrivingDirection = x.DrivingDirection,
-                    CarHeight = x.DrivingDirection == DrivingDirection.Up || x.DrivingDirection == DrivingDirection.Down ? 40 : 20,
-                    CarWidth = x.DrivingDirection == DrivingDirection.Up || x.DrivingDirection == DrivingDirection.Down ? 20 : 40,
+                    ShipHeight = x.DrivingDirection == DrivingDirection.Up || x.DrivingDirection == DrivingDirection.Down ? 40 : 20,
+                    ShipWidth = x.DrivingDirection == DrivingDirection.Up || x.DrivingDirection == DrivingDirection.Down ? 20 : 40,
                 }).ToList();
 
-            _tempVehicles = new List<MinimalVehicle>();
+            _tempShips = new List<MinimalShip>();
 
-            foreach (MinimalVehicle v in _vehicles)
+            foreach (MinimalShip v in _ships)
             {
-                _tempVehicles.Add(v);
+                _tempShips.Add(v);
             }
 
-            IDrawDecorator drawDecorator = new HeadlightsDecorator(this, _tempVehicles);
+            IDrawDecorator drawDecorator = new CannonDecorator(this, _tempShips);
             var a = new PaintEventHandler(drawDecorator.DrawCar);
             Canvas.Panel1.Paint += a;
 
@@ -76,24 +70,24 @@ namespace CosmosInvaders.Client
             //var a = new PaintEventHandler(DrawCar);
         }
 
-        public void DrawCar(object sender, PaintEventArgs e)
+        public void DrawShip(object sender, PaintEventArgs e)
         {
             var p = sender as Panel;
             var g = e.Graphics;
 
-            foreach (var v in _tempVehicles)
+            foreach (var v in _tempShips)
             {
                 g.DrawImage(
-                        GetVehicleByType(v.MaxSpeed, v.DrivingDirection),
-                        v.CarX,
-                        v.CarY,
-                        v.CarWidth,
-                        v.CarHeight
+                        GetShipByType(v.MaxSpeed, v.DrivingDirection),
+                        v.ShipX,
+                        v.ShipY,
+                        v.ShipWidth,
+                        v.ShipHeight
                     );
             }
         }
 
-        public Bitmap GetVehicleByType(int maxSpeed, DrivingDirection direction)
+        public Bitmap GetShipByType(int maxSpeed, DrivingDirection direction)
         {
             switch (maxSpeed)
             {

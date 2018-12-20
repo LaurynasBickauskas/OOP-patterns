@@ -5,13 +5,13 @@
     /// </summary>
 	public class VehicleFactory : AbstractVehicleFactory
     {
-        BikeFactory _bikeFactory { get; set; }
-        CarFactory _carFactory { get; set; }
+        RangerFactory _rangerFactory { get; set; }
+        DestroyerFactory _destroyerFactory { get; set; }
 
         public VehicleFactory()
         {
-            _bikeFactory = new BikeFactory();
-            _carFactory = new CarFactory();
+            _rangerFactory = new RangerFactory();
+            _destroyerFactory = new DestroyerFactory();
         }
 
         /// <summary>
@@ -22,14 +22,14 @@
             Vehicle vehicle = null;
             switch (family)
             {
-                case "Bike":
-                    vehicle = (Vehicle)_bikeFactory.GetBike(type);
+                case "Ranger":
+                    vehicle = (Vehicle)_rangerFactory.GetRanger(type);
                     vehicle.SetCoordinates(200, 200);
                     vehicle.PlayerName = playerName;
                     vehicle.HealthPoints = vehicle.MaxHealthPoints;
                     return vehicle;
-                case "Car":
-                    vehicle = (Vehicle)_carFactory.GetCar(type);
+                case "Destroyer":
+                    vehicle = (Vehicle)_destroyerFactory.GetDestroyer(type);
                     vehicle.SetCoordinates(200, 200);
                     vehicle.PlayerName = playerName;
                     vehicle.HealthPoints = vehicle.MaxHealthPoints;

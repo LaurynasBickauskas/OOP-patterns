@@ -1,17 +1,13 @@
 namespace CosmosInvaders.Library
 {
-    public class BikeFactory
+    public class RangerFactory
     {
-        public IBike GetBike(string type)
+        public IRanger GetRanger(string type)
         {
             switch (type)
             {
-                case "Bicycle":
-                    return new Bicycle().GetBike();
-                case "Motorbike":
-                    return new Motorbike().GetBike();
-                case "Quad":
-                    return new Quad().GetBike();
+                case "Small ship":
+                    return new SmallShip().GetRanger();
                 default:
                     return null;
             }

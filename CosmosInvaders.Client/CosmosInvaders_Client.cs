@@ -38,13 +38,9 @@ namespace CosmosInvaders.Client
             _instance = Game.Instance;
             VehiclesDropDown.DataSource = new List<string>
             {
-                "",
-                "Bicycle",
-                "Motorbike",
-                "Quad",
-                "RaceCar",
-                "Truck",
-                "Jeep"
+                "Small ship",
+                "Medium ship",
+                "Large ship"
             };
 
             ChatHub = new WSConnection(_instance, GameDraw);
@@ -141,16 +137,13 @@ namespace CosmosInvaders.Client
             // Kreipimasis i api
             switch (VehiclesDropDown.SelectedValue)
             {
-                case "Bicycle":
-                case "Motorbike":
-                case "Quad":
-                    family = "Bike";
+                case "Small ship":
+                    family = "Ranger";
                     break;
 
-                case "RaceCar":
-                case "Truck":
-                case "Jeep":
-                    family = "Car";
+                case "Medium ship":
+                case "Large ship":
+                    family = "Destroyer";
                     break;
             }
             return family;

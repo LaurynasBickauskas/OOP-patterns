@@ -33,9 +33,11 @@ namespace CosmosInvaders.Client
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.positionSaves = new System.Windows.Forms.RichTextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.sendMessage = new System.Windows.Forms.Button();
             this.message = new System.Windows.Forms.TextBox();
             this.messageBox = new System.Windows.Forms.RichTextBox();
+            this.logBox = new System.Windows.Forms.RichTextBox();
             this.DirectionValue = new System.Windows.Forms.Label();
             this.SpeedValue = new System.Windows.Forms.Label();
             this.DirectionName = new System.Windows.Forms.Label();
@@ -49,7 +51,6 @@ namespace CosmosInvaders.Client
             this.VehiclesDropDown = new System.Windows.Forms.ComboBox();
             this.UsernameLabel = new System.Windows.Forms.Label();
             this.UsernameTextBox = new System.Windows.Forms.TextBox();
-            this.logBox = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -66,6 +67,7 @@ namespace CosmosInvaders.Client
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.positionSaves);
+            this.splitContainer1.Panel2.Controls.Add(this.button1);
             this.splitContainer1.Panel2.Controls.Add(this.sendMessage);
             this.splitContainer1.Panel2.Controls.Add(this.message);
             this.splitContainer1.Panel2.Controls.Add(this.messageBox);
@@ -97,6 +99,16 @@ namespace CosmosInvaders.Client
             this.positionSaves.Text = "";
             this.positionSaves.TextChanged += new System.EventHandler(this.positionSaves_TextChanged);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(188, 115);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(118, 37);
+            this.button1.TabIndex = 19;
+            this.button1.Text = "Back to saved position";
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // sendMessage
             // 
             this.sendMessage.Location = new System.Drawing.Point(262, 394);
@@ -123,6 +135,16 @@ namespace CosmosInvaders.Client
             this.messageBox.Size = new System.Drawing.Size(306, 158);
             this.messageBox.TabIndex = 16;
             this.messageBox.Text = "";
+            // 
+            // logBox
+            // 
+            this.logBox.Location = new System.Drawing.Point(9, 235);
+            this.logBox.Name = "logBox";
+            this.logBox.ReadOnly = true;
+            this.logBox.Size = new System.Drawing.Size(306, 153);
+            this.logBox.TabIndex = 15;
+            this.logBox.Text = "";
+            this.logBox.TextChanged += new System.EventHandler(this.logBox_TextChanged);
             // 
             // DirectionValue
             // 
@@ -229,6 +251,7 @@ namespace CosmosInvaders.Client
             // 
             // VehiclesDropDown
             // 
+            this.VehiclesDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.VehiclesDropDown.FormattingEnabled = true;
             this.VehiclesDropDown.Location = new System.Drawing.Point(65, 46);
             this.VehiclesDropDown.Margin = new System.Windows.Forms.Padding(2);
@@ -253,16 +276,6 @@ namespace CosmosInvaders.Client
             this.UsernameTextBox.Name = "UsernameTextBox";
             this.UsernameTextBox.Size = new System.Drawing.Size(106, 20);
             this.UsernameTextBox.TabIndex = 0;
-            // 
-            // logBox
-            // 
-            this.logBox.Location = new System.Drawing.Point(9, 235);
-            this.logBox.Name = "logBox";
-            this.logBox.ReadOnly = true;
-            this.logBox.Size = new System.Drawing.Size(306, 153);
-            this.logBox.TabIndex = 15;
-            this.logBox.Text = "";
-            this.logBox.TextChanged += new System.EventHandler(this.logBox_TextChanged);
             // 
             // CosmosInvaders_Client
             // 
@@ -301,11 +314,12 @@ namespace CosmosInvaders.Client
         private System.Windows.Forms.Label SpeedValue;
         private System.Windows.Forms.Label DirectionName;
         private System.Windows.Forms.Label SpeedName;
+        private System.Windows.Forms.RichTextBox logBox;
         private System.Windows.Forms.RichTextBox messageBox;
         private System.Windows.Forms.Button sendMessage;
         private System.Windows.Forms.TextBox message;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.RichTextBox positionSaves;
-        private System.Windows.Forms.RichTextBox logBox;
     }
 }
 
