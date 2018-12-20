@@ -2,7 +2,7 @@
 {
     public interface IMovable
     {
-        void ChangeDirection(TurnTo directionToTurn);
-        void ChangeSpeed(bool forward);
+        void MoveHorizontal(MoveTo directionToTurn);
+        void MoveVertical(bool forward);
     }
 }

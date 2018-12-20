@@ -1,17 +1,17 @@
 ﻿namespace CosmosInvaders.Library
 {
-    public class TurnRightCommand : ICommand
+    public class MoveUpCommand : ICommand
     {
         IMovable _ship { get; set; }
 
-        public TurnRightCommand(IMovable ship)
+        public MoveUpCommand(IMovable ship)
         {
             _ship = ship;
         }
 
         public void Execute()
         {
-            _ship.ChangeDirection(TurnTo.Right);
+            _ship.MoveVertical(true);
         }
     }
 }

@@ -1,17 +1,17 @@
 ﻿namespace CosmosInvaders.Library
 {
-    public class SlowDownCommand : ICommand
+    public class MoveLeftCommand : ICommand
     {
         IMovable _ship { get; set; }
 
-        public SlowDownCommand(IMovable ship)
+        public MoveLeftCommand(IMovable ship)
         {
             _ship = ship;
         }
 
         public void Execute()
         {
-            _ship.ChangeSpeed(false);
+            _ship.MoveHorizontal(MoveTo.Left);
         }
     }
 }

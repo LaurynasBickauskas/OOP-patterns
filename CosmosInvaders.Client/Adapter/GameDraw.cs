@@ -47,9 +47,9 @@ namespace CosmosInvaders.Client
                     ShipX = x.CoordinateX,
                     ShipY = x.CoordinateY,
                     MaxSpeed = x.MaxSpeed,
-                    FlyingDirection = x.FlyingDirection,
-                    ShipHeight = x.FlyingDirection == FlyingDirection.Up || x.FlyingDirection == FlyingDirection.Down ? 40 : 20,
-                    ShipWidth = x.FlyingDirection == FlyingDirection.Up || x.FlyingDirection == FlyingDirection.Down ? 20 : 40,
+                    FlyingDirection = x.CurrentDirection,
+                    ShipHeight = x.CurrentDirection == FlyingDirection.Up || x.CurrentDirection == FlyingDirection.Down ? 40 : 20,
+                    ShipWidth = x.CurrentDirection == FlyingDirection.Up || x.CurrentDirection == FlyingDirection.Down ? 20 : 40,
                 }).ToList();
 
             _tempShips = new List<MinimalShip>();

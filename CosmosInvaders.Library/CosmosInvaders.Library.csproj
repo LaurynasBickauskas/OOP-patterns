@@ -50,10 +50,10 @@
     <Compile Include="Controllers\Command\ICommand.cs" />
     <Compile Include="Controllers\Command\IMovable.cs" />
     <Compile Include="Controllers\Command\MovementSwitcher.cs" />
-    <Compile Include="Controllers\Command\SlowDownCommand.cs" />
-    <Compile Include="Controllers\Command\SpeedUpCommand.cs" />
-    <Compile Include="Controllers\Command\TurnLeftCommand.cs" />
-    <Compile Include="Controllers\Command\TurnRightCommand.cs" />
+    <Compile Include="Controllers\Command\MoveDownCommand.cs" />
+    <Compile Include="Controllers\Command\MoveUpCommand.cs" />
+    <Compile Include="Controllers\Command\MoveLeftCommand.cs" />
+    <Compile Include="Controllers\Command\MoveRightCommand.cs" />
     <Compile Include="Controllers\Enumerators\FlyingDirection.cs" />
     <Compile Include="Controllers\Enumerators\TurnTo.cs" />
     <Compile Include="Controllers\Facade\GameFacade.cs" />
@@ -77,8 +77,8 @@
     <Compile Include="Controllers\Prototype\Tree.cs" />
     <Compile Include="Controllers\Singleton\Game.cs" />
     <Compile Include="Controllers\Strategy\FlyAlgorithm.cs" />
-    <Compile Include="Controllers\Strategy\FlyMud.cs" />
-    <Compile Include="Controllers\Strategy\FlyRegular.cs" />
+    <Compile Include="Controllers\Strategy\FlyAcceleration.cs" />
+    <Compile Include="Controllers\Strategy\FlyMagic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

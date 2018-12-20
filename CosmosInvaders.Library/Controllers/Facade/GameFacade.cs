@@ -61,25 +61,25 @@ namespace CosmosInvaders.Library
         public Ship Move(string playerName, char key)
         {
             Ship ship = GetShipByPlayerName(playerName);
-            ICommand turnLeft = new TurnLeftCommand(ship);
-            ICommand turnRight = new TurnRightCommand(ship);
-            ICommand speedUp = new SpeedUpCommand(ship);
-            ICommand slowDown = new SlowDownCommand(ship);
+            ICommand moveLeft = new MoveLeftCommand(ship);
+            ICommand moveRight = new MoveRightCommand(ship);
+            ICommand moveUp = new MoveUpCommand(ship);
+            ICommand moveDown = new MoveDownCommand(ship);
 
-            MovementSwitcher movementSwitcher = new MovementSwitcher(turnLeft, turnRight, speedUp, slowDown);
+            MovementSwitcher movementSwitcher = new MovementSwitcher(moveLeft, moveRight, moveUp, moveDown);
             switch (key.ToString().ToLower())
             {
                 case "w":
-                    movementSwitcher.SpeedUp();
+                    movementSwitcher.MoveUp();
                     break;
                 case "s":
-                    movementSwitcher.SlowDown();
+                    movementSwitcher.MoveDown();
                     break;
                 case "a":
-                    movementSwitcher.TurnLeft();
+                    movementSwitcher.MoveLeft();
                     break;
                 case "d":
-                    movementSwitcher.TurnRight();
+                    movementSwitcher.MoveRight();
                     break;
             }
 

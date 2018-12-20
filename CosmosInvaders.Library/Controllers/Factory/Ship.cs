@@ -11,8 +11,8 @@ namespace CosmosInvaders.Library
         public int HealthPoints { get; set; }
         public int MaxHealthPoints { get; set; }
         public int Speed { get; set; }
-        public FlyingDirection FlyingDirection { get; set; } = FlyingDirection.Up;
-        private FlyAlgorithm _currentFlyingAlorithm { get; set; } = new FlyRegular();
+        public FlyingDirection CurrentDirection { get; set; } = FlyingDirection.Up;
+        private FlyAlgorithm _currentFlyingAlorithm { get; set; } = new FlyMagic();
 
         public bool SomeoneChangedState { get; set; }
 
@@ -32,13 +32,13 @@ namespace CosmosInvaders.Library
 
         public void Fly(FlyingDirection direction)
         {
-            FlyingDirection = direction; //TODO: pakeist kad susiestu su skraidymu krc nzn
-            Fly(_currentFlyingAlorithm);
+            Fly(_currentFlyingAlorithm, direction);
+            CurrentDirection = direction;
         }
 
-        private void Fly(FlyAlgorithm algoritm)
+        private void Fly(FlyAlgorithm algoritm, FlyingDirection newDirection)
         {
-            (CoordinateX, CoordinateY) = algoritm.Move(CoordinateX, CoordinateY, FlyingDirection, Speed);
+            (CoordinateX, CoordinateY,Speed) = algoritm.Move(CoordinateX, CoordinateY,CurrentDirection, newDirection, Speed);
         }
 
         public void Update()
@@ -56,38 +56,34 @@ namespace CosmosInvaders.Library
 
         public FlyingDirection Display()
         {
-            return FlyingDirection;
+            return CurrentDirection;
         }
 
-        public void ChangeDirection(TurnTo directionToTurn)
+        public void MoveHorizontal(MoveTo sideToMove)
         {
-            int directionResult = (int)FlyingDirection + (int)directionToTurn;
-            if (directionResult < 0)
+            if(sideToMove == MoveTo.Left)
             {
-                FlyingDirection = (FlyingDirection)3;
-                return;
+                Fly(FlyingDirection.Left);
             }
-            if (directionResult > 3)
+            else if (sideToMove == MoveTo.Right)
             {
-                FlyingDirection = (FlyingDirection)0;
-                return;
+                Fly(FlyingDirection.Right);
             }
-            FlyingDirection = (FlyingDirection)directionResult;
         }
 
-        public void ChangeSpeed(bool foward)
+        public void MoveVertical(bool up)
         {
-            if (foward)
-                Speed = (Speed + 1) <= MaxSpeed ? Speed + 1 : Speed;
-            else
+            if (up == true)
             {
-                if (Speed > 0)
-                    Speed -= Math.Abs(Speed - 1) <= MaxSpeed ? Speed - 1 : Speed;
-                else
-                    Speed = 0;
-
+                Fly(FlyingDirection.Up);
+                CurrentDirection = FlyingDirection.Up;
             }
-            Fly(_currentFlyingAlorithm);
+            else 
+            {
+                Fly(FlyingDirection.Down);
+                CurrentDirection = FlyingDirection.Down;
+            }
+            
         }
 
         public Tuple<string, string> SendMessage(string message)

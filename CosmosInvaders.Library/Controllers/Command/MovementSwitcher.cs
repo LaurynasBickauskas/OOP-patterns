@@ -2,37 +2,37 @@
 {
     public class MovementSwitcher
     {
-        ICommand _turnLeft { get; set; }
-        ICommand _turnRight { get; set; }
-        ICommand _speedUp { get; set; }
-        ICommand _slowDown { get; set; }
+        ICommand _moveLeft { get; set; }
+        ICommand _moveRight { get; set; }
+        ICommand _moveUp { get; set; }
+        ICommand _moveDown { get; set; }
 
-        public MovementSwitcher(ICommand turnLeft, ICommand turnRight, ICommand speedUp, ICommand slowDown)
+        public MovementSwitcher(ICommand moveLeft, ICommand moveRight, ICommand moveUp, ICommand moveDown)
         {
-            _turnLeft = turnLeft;
-            _turnRight = turnRight;
-            _speedUp = speedUp;
-            _slowDown = slowDown;
+            _moveLeft = moveLeft;
+            _moveRight = moveRight;
+            _moveUp = moveUp;
+            _moveDown = moveDown;
         }
         
-        public void TurnLeft()
+        public void MoveLeft()
         {
-            _turnLeft.Execute();
+            _moveLeft.Execute();
         }
 
-        public void TurnRight()
+        public void MoveRight()
         {
-            _turnRight.Execute();
+            _moveRight.Execute();
         }
 
-        public void SpeedUp()
+        public void MoveUp()
         {
-            _speedUp.Execute();
+            _moveUp.Execute();
         }
 
-        public void SlowDown()
+        public void MoveDown()
         {
-            _slowDown.Execute();
+            _moveDown.Execute();
         }
 
 
