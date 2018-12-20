@@ -9,7 +9,6 @@ using Microsoft.AspNet.SignalR.Client;
 using CosmosInvaders.Library;
 using Newtonsoft.Json;
 using System.Windows.Forms;
-using CosmosInvaders.Library.Controllers.Memento;
 
 namespace CosmosInvaders.Client
 {
@@ -50,8 +49,6 @@ namespace CosmosInvaders.Client
 
         public event SetTupleDelegate SetMessage;
 
-        public Originator originator = new Originator();
-        public CareTaker careTaker = new CareTaker();
 
         public WSConnection(Game game, IDraw gameDraw)
         {
@@ -213,15 +210,7 @@ namespace CosmosInvaders.Client
                     SetSpeed(serverVehicle.Speed.ToString());
                     SetDirection(serverVehicle.DrivingDirection.ToString());
                 }
-                //Memento
-                //Save secret spot to memento
-                if ((playerVehicle.CoordinateX % 50 == 0 && playerVehicle.CoordinateY % 50 == 0) && playerVehicle.PlayerName == PlayerName)
-                {
-                    originator.setState(new Coordinates(playerVehicle.CoordinateX, playerVehicle.CoordinateY));
-                    careTaker.add(originator.saveStateToMemento());
-                    SetPosLog("X = " + playerVehicle.CoordinateX + "\nY = " + playerVehicle.CoordinateY + "\nSpot saved " + saves++);
-                }
-                //
+
                 GameDraw.DrawCars(game.Vehicles);
             });
         }
