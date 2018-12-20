@@ -12,12 +12,12 @@ namespace CosmosInvaders.Client
     internal abstract class DrawDecorator : IDrawDecorator
     {
         protected IDrawDecorator drawing;
-        protected List<MinimalVehicle> _tempVehicles;
+        protected List<MinimalShip> _tempShips;
 
-        protected DrawDecorator(IDrawDecorator drawing, List<MinimalVehicle> _tempVehicles)
+        protected DrawDecorator(IDrawDecorator drawing, List<MinimalShip> _tempShips)
         {
             this.drawing = drawing;
-            this._tempVehicles = _tempVehicles;
+            this._tempShips = _tempShips;
         }
 
         public virtual void DrawCar(object sender, PaintEventArgs e)
