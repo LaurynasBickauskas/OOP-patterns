@@ -32,6 +32,7 @@ namespace CosmosInvaders.Client
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.positionSaves = new System.Windows.Forms.RichTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.sendMessage = new System.Windows.Forms.Button();
             this.message = new System.Windows.Forms.TextBox();
@@ -50,7 +51,6 @@ namespace CosmosInvaders.Client
             this.VehiclesDropDown = new System.Windows.Forms.ComboBox();
             this.UsernameLabel = new System.Windows.Forms.Label();
             this.UsernameTextBox = new System.Windows.Forms.TextBox();
-            this.positionSaves = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -87,6 +87,17 @@ namespace CosmosInvaders.Client
             this.splitContainer1.SplitterDistance = 596;
             this.splitContainer1.SplitterWidth = 3;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // positionSaves
+            // 
+            this.positionSaves.Location = new System.Drawing.Point(188, 10);
+            this.positionSaves.Margin = new System.Windows.Forms.Padding(2);
+            this.positionSaves.Name = "positionSaves";
+            this.positionSaves.ReadOnly = true;
+            this.positionSaves.Size = new System.Drawing.Size(118, 90);
+            this.positionSaves.TabIndex = 20;
+            this.positionSaves.Text = "";
+            this.positionSaves.TextChanged += new System.EventHandler(this.positionSaves_TextChanged);
             // 
             // button1
             // 
@@ -240,6 +251,7 @@ namespace CosmosInvaders.Client
             // 
             // VehiclesDropDown
             // 
+            this.VehiclesDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.VehiclesDropDown.FormattingEnabled = true;
             this.VehiclesDropDown.Location = new System.Drawing.Point(65, 46);
             this.VehiclesDropDown.Margin = new System.Windows.Forms.Padding(2);
@@ -264,17 +276,6 @@ namespace CosmosInvaders.Client
             this.UsernameTextBox.Name = "UsernameTextBox";
             this.UsernameTextBox.Size = new System.Drawing.Size(106, 20);
             this.UsernameTextBox.TabIndex = 0;
-            // 
-            // positionSaves
-            // 
-            this.positionSaves.Location = new System.Drawing.Point(188, 10);
-            this.positionSaves.Margin = new System.Windows.Forms.Padding(2);
-            this.positionSaves.Name = "positionSaves";
-            this.positionSaves.ReadOnly = true;
-            this.positionSaves.Size = new System.Drawing.Size(118, 90);
-            this.positionSaves.TabIndex = 20;
-            this.positionSaves.Text = "";
-            this.positionSaves.TextChanged += new System.EventHandler(this.positionSaves_TextChanged);
             // 
             // CosmosInvaders_Client
             // 

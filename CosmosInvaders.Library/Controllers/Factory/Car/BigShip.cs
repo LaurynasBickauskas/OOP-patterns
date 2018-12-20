@@ -1,17 +1,17 @@
 namespace CosmosInvaders.Library
 {
-    public class Motorbike : Vehicle, IBike
+    public class BigShip : Vehicle, IDestroyer
     {
-        private const int _maxHealthPoints = 80;
+        private const int _maxHealthPoints = 150;
         private const int _maxSpeed = 20;
 
-        public Motorbike()
+        public BigShip()
         {
             MaxSpeed = _maxSpeed;
             MaxHealthPoints = _maxHealthPoints;
         }
 
-        public IBike GetBike()
+        public IDestroyer GetDestroyer()
         {
             return this;
         }
