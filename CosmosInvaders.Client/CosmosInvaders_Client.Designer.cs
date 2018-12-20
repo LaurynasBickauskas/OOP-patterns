@@ -225,9 +225,10 @@ namespace CosmosInvaders.Client
             this.StatusDescriptionLabel.Location = new System.Drawing.Point(45, 2);
             this.StatusDescriptionLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.StatusDescriptionLabel.Name = "StatusDescriptionLabel";
-            this.StatusDescriptionLabel.Size = new System.Drawing.Size(35, 13);
+            this.StatusDescriptionLabel.Size = new System.Drawing.Size(79, 13);
             this.StatusDescriptionLabel.TabIndex = 7;
-            this.StatusDescriptionLabel.Text = "label4";
+            this.StatusDescriptionLabel.Text = "Not Connected";
+            this.StatusDescriptionLabel.Click += new System.EventHandler(this.StatusDescriptionLabel_Click);
             // 
             // ConnectButton
             // 
