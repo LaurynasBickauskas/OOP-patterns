@@ -14,8 +14,8 @@ namespace CosmosInvaders.Library
 
         public static void LoadCache()
         {
-            Tree tree = new Tree();
-            _obstacleMap.Add("tree", tree);
+            Debris debris = new Debris();
+            _obstacleMap.Add("debris", debris);
             Rock rock = new Rock();
             _obstacleMap.Add("rock", rock);
         }

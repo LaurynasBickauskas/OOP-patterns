@@ -96,20 +96,20 @@ namespace CosmosInvaders.Library
 
             ObstacleCache.LoadCache();
 
-            Tree tree = (Tree)ObstacleCache.GetObstacle("tree");
-            tree.UpperLeftCoordinateX = 1;
-            tree.UpperLeftCoordinateY = 1;
-            mapObstacles.Add(tree);
+            Debris debris = (Debris)ObstacleCache.GetObstacle("debris");
+            debris.UpperLeftCoordinateX = 1;
+            debris.UpperLeftCoordinateY = 1;
+            mapObstacles.Add(debris);
 
             Rock rock = (Rock)ObstacleCache.GetObstacle("rock");
             rock.UpperLeftCoordinateX = 2;
             rock.UpperLeftCoordinateY = 2;
             mapObstacles.Add(rock);
 
-            Tree tree2 = (Tree)ObstacleCache.GetObstacle("tree");
-            tree2.UpperLeftCoordinateX = 3;
-            tree2.UpperLeftCoordinateY = 3;
-            mapObstacles.Add(tree2);
+            Debris debris2 = (Debris)ObstacleCache.GetObstacle("debris");
+            debris2.UpperLeftCoordinateX = 3;
+            debris2.UpperLeftCoordinateY = 3;
+            mapObstacles.Add(debris2);
 
             Rock rock2 = (Rock)ObstacleCache.GetObstacle("rock");
             rock2.UpperLeftCoordinateX = 4;
