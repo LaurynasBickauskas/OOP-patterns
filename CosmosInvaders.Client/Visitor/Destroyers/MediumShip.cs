@@ -1,9 +1,9 @@
 ﻿using CosmosInvaders.Library;
 using System.Drawing;
 
-namespace CosmosInvaders.Client.Visitor.Bikes
+namespace CosmosInvaders.Client.Visitor.Destroyers
 {
-    public class Quad : IShipType
+    public class MediumShip : IShipType
     {
         public Bitmap Display(IShipTypeVisitor shipTypeVisitor, FlyingDirection direction)
         {

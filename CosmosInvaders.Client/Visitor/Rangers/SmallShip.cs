@@ -1,9 +1,9 @@
 ﻿using CosmosInvaders.Library;
 using System.Drawing;
 
-namespace CosmosInvaders.Client.Visitor.Cars
+namespace CosmosInvaders.Client.Visitor.Rangers
 {
-    public class Jeep : IShipType
+    public class SmallShip : IShipType
     {
         public Bitmap Display(IShipTypeVisitor shipTypeVisitor, FlyingDirection direction)
         {

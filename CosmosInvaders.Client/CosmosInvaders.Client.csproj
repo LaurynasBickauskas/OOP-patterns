@@ -116,15 +116,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sockets\WSConnection.cs" />
-    <Compile Include="Visitor\Cars\Truck.cs" />
-    <Compile Include="Visitor\Cars\RaceCar.cs" />
-    <Compile Include="Visitor\Cars\Jeep.cs" />
-    <Compile Include="Visitor\Bikes\Motorbike.cs" />
-    <Compile Include="Visitor\Bikes\Quad.cs" />
-    <Compile Include="Visitor\Bikes\Bicycle.cs" />
-    <Compile Include="Visitor\IVehicleType.cs" />
-    <Compile Include="Visitor\IVehicleTypeVisitor.cs" />
-    <Compile Include="Visitor\VehicleTypeDisplayVisitor.cs" />
+    <Compile Include="Visitor\Destroyers\BigShip.cs" />
+    <Compile Include="Visitor\Destroyers\MediumShip.cs" />
+    <Compile Include="Visitor\Rangers\SmallShip.cs" />
+    <Compile Include="Visitor\IShipType.cs" />
+    <Compile Include="Visitor\IShipTypeVisitor.cs" />
+    <Compile Include="Visitor\ShipTypeDisplayVisitor.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

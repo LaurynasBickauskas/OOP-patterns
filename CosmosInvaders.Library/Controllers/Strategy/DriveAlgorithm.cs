@@ -32,12 +32,12 @@ namespace CosmosInvaders.Library
             if (x > 560) x = 560;
             if (x < 0) x = 0;
 
-            NotifyOtherCars();
+            NotifyOtherDestroyers();
             return (x, y);
         }
 
         protected abstract int CalculateMovement(double p, double speed);
 
-        protected abstract void NotifyOtherCars();
+        protected abstract void NotifyOtherDestroyers();
     }
 }

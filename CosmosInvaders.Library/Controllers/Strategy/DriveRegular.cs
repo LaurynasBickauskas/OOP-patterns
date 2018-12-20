@@ -9,7 +9,7 @@ namespace CosmosInvaders.Library
             return (int)Math.Floor(p * speed) + 1;
         }
 
-        protected override void NotifyOtherCars()
+        protected override void NotifyOtherDestroyers()
         {
             Game.Instance.ObservableShips.NotifyAll();
         }

@@ -91,29 +91,17 @@ namespace CosmosInvaders.Client
         {
             switch (maxSpeed)
             {
-                case 10:
-                    IShipType bicycleType = new Visitor.Bikes.Bicycle();
-                    return bicycleType.Display(new ShipTypeDisplayVisitor(), direction);
-
-                case 20:
-                    IShipType motorbikeType = new Visitor.Bikes.Motorbike();
-                    return motorbikeType.Display(new ShipTypeDisplayVisitor(), direction);
+                case 50:
+                    IShipType smallShipType = new Visitor.Rangers.SmallShip();
+                    return smallShipType.Display(new ShipTypeDisplayVisitor(), direction);
 
                 case 30:
-                    IShipType quadType = new Visitor.Bikes.Quad();
-                    return quadType.Display(new ShipTypeDisplayVisitor(), direction);
+                    IShipType mediumShipType = new Visitor.Destroyers.MediumShip();
+                    return mediumShipType.Display(new ShipTypeDisplayVisitor(), direction);
 
-                case 40:
-                    IShipType truckType = new Visitor.Cars.Truck();
-                    return truckType.Display(new ShipTypeDisplayVisitor(), direction);
-
-                case 50:
-                    IShipType jeepType = new Visitor.Cars.Jeep();
-                    return jeepType.Display(new ShipTypeDisplayVisitor(), direction);
-
-                case 60:
-                    IShipType raceCarType = new Visitor.Cars.RaceCar();
-                    return raceCarType.Display(new ShipTypeDisplayVisitor(), direction);
+                case 20:
+                    IShipType bigShipType = new Visitor.Destroyers.BigShip();
+                    return bigShipType.Display(new ShipTypeDisplayVisitor(), direction);
             }
             return null;
         }
