@@ -22,11 +22,11 @@ namespace CosmosInvaders.Library
         }
 
         /// <summary>
-        /// Zaidejas prisijungia, taigi pagal jo varda sukuriama transporto priemone
+        /// Zaidejas prisijungia, taigi pagal jo varda sukuriamas laivas
         /// </summary>
         /// <param name="playerName">Zaidejo vardas</param>
-        /// <param name="shipFamily">Zaidejo pasirinkta transporto priemones seima (pvz. Bike)</param>
-        /// <param name="shipType">Zaidejo pasirinktas transporto priemones tipas pagal seima (pvz. Motorbike)</param>
+        /// <param name="shipFamily">Zaidejo pasirinkta laivass seima (pvz. Destroyer)</param>
+        /// <param name="shipType">Zaidejo pasirinktas laivass tipas pagal seima (pvz. Big ship)</param>
         /// <returns></returns>
         public Ship Connected(string playerName, string shipFamily, string shipType)
         {
@@ -42,7 +42,7 @@ namespace CosmosInvaders.Library
         }
 
         /// <summary>
-        /// Zaidejas pereina is "loby" i zaidima, taigi jis prisubscribinamas prie observerio kuris pranes kitiems apie jo judesius
+        /// Zaidejas pereina is "lobby" i zaidima, taigi jis prisubscribinamas prie observerio kuris pranes kitiems apie jo judesius
         /// </summary>
         /// <param name="playerName"></param>
         public void PlayerJoinedTheGame(string playerName)
@@ -53,11 +53,11 @@ namespace CosmosInvaders.Library
 
         /// <summary>
         /// Masinos judejimas
-        /// Kreipiasi client, kai jo masina nori judeti (judama pagal paspausta mygtuka)
+        /// Kreipiasi client, kai jo laivas nori judeti (judama pagal paspausta mygtuka)
         /// </summary>
-        /// <param name="playerName">Zaidejo kurio masina judinama vardas</param>
+        /// <param name="playerName">Zaidejo kurio laivas judinama vardas</param>
         /// <param name="key">Paspaustas mygtukas</param>
-        /// <returns>Transporto priemone su visa savo informacija</returns>
+        /// <returns>Laivas su visa savo informacija</returns>
         public Ship Move(string playerName, char key)
         {
             Ship ship = GetShipByPlayerName(playerName);
@@ -128,13 +128,13 @@ namespace CosmosInvaders.Library
         }
 
         /// <summary>
-        /// Gaunama transporto priemone pagal zaidejo varda
+        /// Gaunama laivas pagal zaidejo varda
         /// </summary>
         /// <param name="playerName">Zaidejo vardas</param>
-        /// <returns>Zaidejo transporto priemones objektas</returns>
+        /// <returns>Zaidejo laivo objektas</returns>
         private Ship GetShipByPlayerName(string playerName)
         {
-            return _instance.Ships.Select(x => x).Where(x => x.PlayerName == playerName).FirstOrDefault();
+            return _instance.Ships.Select(x => x).FirstOrDefault(x => x.PlayerName == playerName);
         }
 
 
