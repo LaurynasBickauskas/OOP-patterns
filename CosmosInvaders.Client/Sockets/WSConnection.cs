@@ -176,9 +176,9 @@ namespace CosmosInvaders.Client
         {
             hub.On("Disconnected", (playerName) =>
             {
-                Ship vehicteToDelete = game.Ships.FirstOrDefault(x => x.PlayerName == playerName);
-                game.ObservableShips.Remove(vehicteToDelete);
-                game.Ships.Remove(vehicteToDelete);
+                Ship shipToDelete = game.Ships.FirstOrDefault(x => x.PlayerName == playerName);
+                game.ObservableShips.Remove(shipToDelete);
+                game.Ships.Remove(shipToDelete);
                 GameDraw.DrawShips(game.Ships);
             });
         }

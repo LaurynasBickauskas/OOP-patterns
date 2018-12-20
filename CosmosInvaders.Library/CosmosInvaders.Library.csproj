@@ -57,7 +57,7 @@
     <Compile Include="Controllers\Enumerators\FlyingDirection.cs" />
     <Compile Include="Controllers\Enumerators\TurnTo.cs" />
     <Compile Include="Controllers\Facade\GameFacade.cs" />
-    <Compile Include="Controllers\Factory\AbstractVehicleFactory.cs" />
+    <Compile Include="Controllers\Factory\AbstractShipFactory.cs" />
     <Compile Include="Controllers\Factory\RangerFactory.cs" />
     <Compile Include="Controllers\Factory\Rangers\SmallShip.cs" />
     <Compile Include="Controllers\Factory\Rangers\IRanger.cs" />
@@ -74,7 +74,7 @@
     <Compile Include="Controllers\Prototype\Obstacle.cs" />
     <Compile Include="Controllers\Prototype\ObstacleCache.cs" />
     <Compile Include="Controllers\Prototype\Rock.cs" />
-    <Compile Include="Controllers\Prototype\Tree.cs" />
+    <Compile Include="Controllers\Prototype\Debris.cs" />
     <Compile Include="Controllers\Singleton\Game.cs" />
     <Compile Include="Controllers\Strategy\FlyAlgorithm.cs" />
     <Compile Include="Controllers\Strategy\FlyAcceleration.cs" />
