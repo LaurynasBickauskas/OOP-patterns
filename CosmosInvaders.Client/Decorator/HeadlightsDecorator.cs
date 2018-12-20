@@ -11,13 +11,13 @@ using static CosmosInvaders.Client.GameDraw;
 
 namespace CosmosInvaders.Client
 {
-    internal class HeadlightsDecorator : DrawDecorator
+    internal class CannonDecorator : DrawDecorator
     {
-        public IImage HeadLight { get; set; }
+        public IImage Cannon { get; set; }
 
-        public HeadlightsDecorator(IDrawDecorator drawing, List<MinimalVehicle> _tempVehicles) : base(drawing, _tempVehicles)
+        public CannonDecorator(IDrawDecorator drawing, List<MinimalShip> _tempShips) : base(drawing, _tempShips)
         {
-            HeadLight = ProxyImageFactory.GetProxyImage(@"..\..\headlights.png");
+            Cannon = ProxyImageFactory.GetProxyImage(@"..\..\headlights.png");
         }
 
         public override void DrawCar(object sender, PaintEventArgs e)
@@ -25,13 +25,13 @@ namespace CosmosInvaders.Client
             base.DrawCar(sender, e);
             var g = e.Graphics;
 
-            foreach (var v in _tempVehicles)
+            foreach (var v in _tempShips)
             {
-                g.DrawImage(HeadLight.GetImage(),
-                        v.CarX,
-                        v.CarY,
-                        v.CarWidth,
-                        v.CarHeight);
+                g.DrawImage(Cannon.GetImage(),
+                        v.ShipX,
+                        v.ShipY,
+                        v.ShipWidth,
+                        v.ShipHeight);
             }
         }
     }
