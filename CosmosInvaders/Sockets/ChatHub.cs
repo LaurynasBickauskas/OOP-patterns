@@ -34,16 +34,8 @@ namespace CosmosInvaders
         public void Move(string playerName, char key)
         {
             Vehicle vehicle = _gameFacade.Move(playerName, key);
-            Clients.All.Moved(
-                JsonConvert.SerializeObject(vehicle)
-                );
-            string message = _gameFacade.Log(vehicle);
-            if (message != "")
-            {
-                Clients.All.Logged(
-                    JsonConvert.SerializeObject(message)
-                    );
-            }
+            Clients.All.Moved(JsonConvert.SerializeObject(vehicle));
+
         }
 
         public void Message(string playerName, string message)

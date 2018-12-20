@@ -47,10 +47,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\ChainOfResponsibility\AbstractLogger.cs" />
-    <Compile Include="Controllers\ChainOfResponsibility\SpeedLimitLogger.cs" />
-    <Compile Include="Controllers\ChainOfResponsibility\ZeroSpeedLogger.cs" />
-    <Compile Include="Controllers\ChainOfResponsibility\MaxSpeedLogger.cs" />
     <Compile Include="Controllers\Command\ICommand.cs" />
     <Compile Include="Controllers\Command\IMovable.cs" />
     <Compile Include="Controllers\Command\MovementSwitcher.cs" />
@@ -63,25 +59,15 @@
     <Compile Include="Controllers\Facade\GameFacade.cs" />
     <Compile Include="Controllers\Factory\AbstractVehicleFactory.cs" />
     <Compile Include="Controllers\Factory\BikeFactory.cs" />
-    <Compile Include="Controllers\Factory\Bikes\Bicycle.cs" />
-    <Compile Include="Controllers\Factory\Bikes\IBike.cs" />
-    <Compile Include="Controllers\Factory\Bikes\Motorbike.cs" />
-    <Compile Include="Controllers\Factory\Bikes\Quad.cs" />
-    <Compile Include="Controllers\Factory\CarFactory.cs" />
-    <Compile Include="Controllers\Factory\Car\ICar.cs" />
-    <Compile Include="Controllers\Factory\Car\Jeep.cs" />
-    <Compile Include="Controllers\Factory\Car\RaceCar.cs" />
-    <Compile Include="Controllers\Factory\Car\Truck.cs" />
+    <Compile Include="Controllers\Factory\Bikes\SmallShip.cs" />
+    <Compile Include="Controllers\Factory\Bikes\IRanger.cs" />
+    <Compile Include="Controllers\Factory\DestroyerFactory.cs" />
+    <Compile Include="Controllers\Factory\Car\IDestroyer.cs" />
+    <Compile Include="Controllers\Factory\Car\MediumShip.cs" />
+    <Compile Include="Controllers\Factory\Car\BigShip.cs" />
     <Compile Include="Controllers\Factory\Vehicle.cs" />
     <Compile Include="Controllers\Factory\VehicleFactory.cs" />
-    <Compile Include="Controllers\Flyweight\Emoji.cs" />
-    <Compile Include="Controllers\Flyweight\EmojiFactory.cs" />
-    <Compile Include="Controllers\Flyweight\IEmoji.cs" />
     <Compile Include="Controllers\Mediator\ChatRoom.cs" />
-    <Compile Include="Controllers\Memento\CareTaker.cs" />
-    <Compile Include="Controllers\Memento\Coordinates.cs" />
-    <Compile Include="Controllers\Memento\Memento.cs" />
-    <Compile Include="Controllers\Memento\Originator.cs" />
     <Compile Include="Controllers\Observer\IObservable.cs" />
     <Compile Include="Controllers\Observer\IObserver.cs" />
     <Compile Include="Controllers\Observer\ObservableVehicles.cs" />

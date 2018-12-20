@@ -137,37 +137,6 @@ namespace CosmosInvaders.Library
             return _instance.Vehicles.Select(x => x).Where(x => x.PlayerName == playerName).FirstOrDefault();
         }
 
-        private static AbstractLogger GetChainOfLoggers()
-        {
-            AbstractLogger zeroSpeedLogger = new ZeroSpeedLogger(AbstractLogger.ZERO_SPEED);
-            AbstractLogger speedLimitLogger = new SpeedLimitLogger(AbstractLogger.SPEED_LIMIT);
-            AbstractLogger maxSpeedLogger = new MaxSpeedLogger(AbstractLogger.MAX_SPEED);
-
-            maxSpeedLogger.SetNextLogger(speedLimitLogger);
-            speedLimitLogger.SetNextLogger(zeroSpeedLogger);
-
-            return maxSpeedLogger;
-        }
-
-        public string Log(Vehicle vehicle)
-        {
-            AbstractLogger loggerChain = GetChainOfLoggers();
-            string message = "";
-            if (vehicle.Speed == 1)
-            {
-                loggerChain.LogMessage(AbstractLogger.ZERO_SPEED, vehicle, this);
-            }
-            else if (vehicle.Speed == 25)
-            {
-                loggerChain.LogMessage(AbstractLogger.SPEED_LIMIT, vehicle, this);
-            }
-            else if (vehicle.Speed == vehicle.MaxSpeed - 1)
-            {
-                loggerChain.LogMessage(AbstractLogger.MAX_SPEED, vehicle, this);
-            }
-            message = this.message;
-            return message;
-        }
 
         public System.Tuple<string, string> PlayerSentMessage(string playerName, string message)
         {

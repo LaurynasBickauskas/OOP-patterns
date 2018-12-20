@@ -38,13 +38,9 @@ namespace CosmosInvaders.Client
             _instance = Game.Instance;
             VehiclesDropDown.DataSource = new List<string>
             {
-                "",
-                "Bicycle",
-                "Motorbike",
-                "Quad",
-                "RaceCar",
-                "Truck",
-                "Jeep"
+                "Small ship",
+                "Medium ship",
+                "Large ship"
             };
 
             ChatHub = new WSConnection(_instance, GameDraw);
@@ -141,16 +137,13 @@ namespace CosmosInvaders.Client
             // Kreipimasis i api
             switch (VehiclesDropDown.SelectedValue)
             {
-                case "Bicycle":
-                case "Motorbike":
-                case "Quad":
-                    family = "Bike";
+                case "Small ship":
+                    family = "Ranger";
                     break;
 
-                case "RaceCar":
-                case "Truck":
-                case "Jeep":
-                    family = "Car";
+                case "Medium ship":
+                case "Large ship":
+                    family = "Destroyer";
                     break;
             }
             return family;
@@ -170,10 +163,7 @@ namespace CosmosInvaders.Client
             VehiclesDropDown.Enabled = false;
             ConnectButton.Enabled = false;
 
-            //HttpResponseMessage response = await client.GetAsync($"game/connect/{UsernameTextBox.Text}/{family}/{VehiclesDropDown.SelectedValue}");
-            //string json = await response.Content.ReadAsAsync<string>() + "\n";
-            //OutputLog.Text += json;
-            //_instance.Vehicles.Add(JsonConvert.DeserializeObject<Vehicle>(json));
+
             ChatHub.Start();
             ChatHub.Connect(UsernameTextBox.Text, getFamilyFromSelection(VehiclesDropDown.SelectedValue.ToString()), VehiclesDropDown.SelectedValue.ToString());
 
@@ -282,6 +272,11 @@ namespace CosmosInvaders.Client
         }
 
         private void positionSaves_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void StatusDescriptionLabel_Click(object sender, EventArgs e)
         {
 
         }
