@@ -1,5 +1,5 @@
-﻿using Racing2D.Client.Proxy;
-using Racing2D.Library;
+﻿using CosmosInvaders.Client.Proxy;
+using CosmosInvaders.Library;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static Racing2D.Client.GameDraw;
+using static CosmosInvaders.Client.GameDraw;
 
-namespace Racing2D.Client
+namespace CosmosInvaders.Client
 {
     internal class HeadlightsDecorator : DrawDecorator
     {

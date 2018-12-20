@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartup(typeof(Racing2d.Startup))]
+[assembly: OwinStartup(typeof(CosmosInvaders.Startup))]
 
-namespace Racing2d
+namespace CosmosInvaders
 {
     public class Startup
     {

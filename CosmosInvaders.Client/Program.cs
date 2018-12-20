@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Racing2D.Client
+namespace CosmosInvaders.Client
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace Racing2D.Client
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Racing2D_Client());
+            Application.Run(new CosmosInvaders_Client());
         }
     }
 }

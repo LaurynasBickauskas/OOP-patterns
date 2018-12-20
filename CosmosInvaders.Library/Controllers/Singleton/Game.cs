@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Racing2D.Library
+namespace CosmosInvaders.Library
 {
     public class Game
     {

@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace Racing2D.Client.Proxy
+namespace CosmosInvaders.Client.Proxy
 {
     public class RealImage : IImage
     {

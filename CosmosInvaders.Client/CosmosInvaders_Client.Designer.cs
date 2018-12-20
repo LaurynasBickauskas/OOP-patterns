@@ -1,9 +1,9 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 
-namespace Racing2D.Client
+namespace CosmosInvaders.Client
 {
-    partial class Racing2D_Client
+    partial class CosmosInvaders_Client
     {
         /// <summary>
         /// Required designer variable.
@@ -276,17 +276,17 @@ namespace Racing2D.Client
             this.positionSaves.Text = "";
             this.positionSaves.TextChanged += new System.EventHandler(this.positionSaves_TextChanged);
             // 
-            // Racing2D_Client
+            // CosmosInvaders_Client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(916, 624);
             this.Controls.Add(this.splitContainer1);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "Racing2D_Client";
-            this.Text = "Racing2D Client";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Racing2D_Client_FormClosed);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Racing2D_Client_KeyDown);
+            this.Name = "CosmosInvaders_Client";
+            this.Text = "CosmosInvaders Client";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CosmosInvaders_Client_FormClosed);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CosmosInvaders_Client_KeyDown);
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();

@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using Microsoft.AspNet.SignalR.Client;
-using Racing2D.Library;
+using CosmosInvaders.Library;
 using Newtonsoft.Json;
 using System.Windows.Forms;
-using Racing2D.Library.Controllers.Memento;
+using CosmosInvaders.Library.Controllers.Memento;
 
-namespace Racing2D.Client
+namespace CosmosInvaders.Client
 {
     public class WSConnection
     {

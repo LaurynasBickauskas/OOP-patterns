@@ -1,6 +1,6 @@
 using System;
 
-namespace Racing2D.Library
+namespace CosmosInvaders.Library
 {
     public class DriveRegular : DriveAlgorithm
     {

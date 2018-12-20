@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Racing2D.Client
+namespace CosmosInvaders.Client
 {
     class DoubleBufferedPanel : Panel
     {

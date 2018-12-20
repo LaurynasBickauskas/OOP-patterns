@@ -1,8 +1,8 @@
 ﻿using System.Drawing;
-using Racing2D.Client.Proxy;
-using Racing2D.Library;
+using CosmosInvaders.Client.Proxy;
+using CosmosInvaders.Library;
 
-namespace Racing2D.Client.Visitor
+namespace CosmosInvaders.Client.Visitor
 {
     public class VehicleTypeDisplayVisitor : IVehicleTypeVisitor
     {

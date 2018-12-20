@@ -10,16 +10,16 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Racing2D.Library;
+using CosmosInvaders.Library;
 using System.Drawing.Drawing2D;
 using Newtonsoft.Json;
-using Racing2D.Client.Interpreter;
-using Racing2D.Client.Iterator;
+using CosmosInvaders.Client.Interpreter;
+using CosmosInvaders.Client.Iterator;
 
 
-namespace Racing2D.Client
+namespace CosmosInvaders.Client
 {
-    public partial class Racing2D_Client : Form
+    public partial class CosmosInvaders_Client : Form
     {
         private Game _instance { get; set; }
         private static HttpClient client = new HttpClient();
@@ -28,12 +28,12 @@ namespace Racing2D.Client
         private WSConnection ChatHub { get; set; }
         public CommandParser Parser { get; private set; }
 
-        public Racing2D_Client()
+        public CosmosInvaders_Client()
         {
             InitializeComponent();
             GameDraw = new GameDraw(splitContainer1);
 
-            client.BaseAddress = new Uri("https://racing2d.azurewebsites.net/api/");
+            client.BaseAddress = new Uri("http://localhost:54973/api/");
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
@@ -192,7 +192,7 @@ namespace Racing2D.Client
             await Connect(sender, e);
         }
 
-        private void Racing2D_Client_KeyDown(object sender, KeyEventArgs e)
+        private void CosmosInvaders_Client_KeyDown(object sender, KeyEventArgs e)
         {
             if (!Connected)
                 return;
@@ -251,7 +251,7 @@ namespace Racing2D.Client
             ChatHub.Move(UsernameTextBox.Text, moveTo);
         }
 
-        private void Racing2D_Client_FormClosed(object sender, FormClosedEventArgs e)
+        private void CosmosInvaders_Client_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (Connected)
             {

@@ -1,7 +1,7 @@
-﻿using Racing2D.Library;
+﻿using CosmosInvaders.Library;
 using System.Drawing;
 
-namespace Racing2D.Client.Visitor.Cars
+namespace CosmosInvaders.Client.Visitor.Cars
 {
     public class Jeep : IVehicleType
     {

@@ -197,8 +197,6 @@
   <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Properties\PublishProfiles\Racing2D - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\Racing2D - Web Deploy.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CosmosInvaders.Library\CosmosInvaders.Library.csproj">

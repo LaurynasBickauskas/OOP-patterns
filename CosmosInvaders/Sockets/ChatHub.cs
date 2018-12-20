@@ -4,9 +4,9 @@ using System.Linq;
 using System.Web;
 using Microsoft.AspNet.SignalR;
 using Newtonsoft.Json;
-using Racing2D.Library;
+using CosmosInvaders.Library;
 
-namespace Racing2d
+namespace CosmosInvaders
 {
     public class ChatHub : Hub
     {

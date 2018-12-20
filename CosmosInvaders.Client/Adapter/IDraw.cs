@@ -1,7 +1,7 @@
-﻿using Racing2D.Library;
+﻿using CosmosInvaders.Library;
 using System.Collections.Generic;
 
-namespace Racing2D.Client
+namespace CosmosInvaders.Client
 {
     public interface IDraw
     {

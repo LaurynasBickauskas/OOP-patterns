@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Racing2D.Client.Interpreter
+namespace CosmosInvaders.Client.Interpreter
 {
     interface Expression
     {

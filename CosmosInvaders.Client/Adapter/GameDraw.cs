@@ -10,13 +10,13 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Racing2D.Library;
+using CosmosInvaders.Library;
 using System.Drawing.Drawing2D;
 using System.Reflection;
-using Racing2D.Client.Proxy;
-using Racing2D.Client.Visitor;
+using CosmosInvaders.Client.Proxy;
+using CosmosInvaders.Client.Visitor;
 
-namespace Racing2D.Client
+namespace CosmosInvaders.Client
 {
     public class GameDraw : IDraw, IDrawDecorator
     {

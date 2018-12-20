@@ -1,4 +1,4 @@
-﻿namespace Racing2D.Library
+﻿namespace CosmosInvaders.Library
 {
     internal class SpeedLimitLogger : AbstractLogger
     {

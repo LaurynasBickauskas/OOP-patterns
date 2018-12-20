@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace Racing2d
+namespace CosmosInvaders
 {
     public class RouteConfig
     {

@@ -1,4 +1,4 @@
-﻿namespace Racing2D.Library
+﻿namespace CosmosInvaders.Library
 {
     public class MovementSwitcher
     {

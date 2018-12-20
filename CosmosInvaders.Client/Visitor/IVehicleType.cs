@@ -1,7 +1,7 @@
-﻿using Racing2D.Library;
+﻿using CosmosInvaders.Library;
 using System.Drawing;
 
-namespace Racing2D.Client.Visitor
+namespace CosmosInvaders.Client.Visitor
 {
     public interface IVehicleType
     {

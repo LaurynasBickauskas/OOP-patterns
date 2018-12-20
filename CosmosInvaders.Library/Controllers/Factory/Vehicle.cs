@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Racing2D.Library
+namespace CosmosInvaders.Library
 {
     public class Vehicle : IObserver, IMovable
     {

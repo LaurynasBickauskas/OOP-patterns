@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Racing2D.Library;
-using static Racing2D.Client.GameDraw;
+using CosmosInvaders.Library;
+using static CosmosInvaders.Client.GameDraw;
 
-namespace Racing2D.Client
+namespace CosmosInvaders.Client
 {
     internal abstract class DrawDecorator : IDrawDecorator
     {

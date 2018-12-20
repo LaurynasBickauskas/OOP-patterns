@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Racing2D.Client.Iterator;
+using CosmosInvaders.Client.Iterator;
 
-namespace Racing2D.Client.Interpreter
+namespace CosmosInvaders.Client.Interpreter
 {
     class TerminalExpression : Expression, IIterator
     {

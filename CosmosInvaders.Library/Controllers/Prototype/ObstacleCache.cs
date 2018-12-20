@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Racing2D.Library
+namespace CosmosInvaders.Library
 {
     public class ObstacleCache
     {
