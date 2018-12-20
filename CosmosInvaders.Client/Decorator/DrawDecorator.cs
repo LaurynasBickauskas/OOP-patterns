@@ -20,9 +20,9 @@ namespace CosmosInvaders.Client
             this._tempShips = _tempShips;
         }
 
-        public virtual void DrawCar(object sender, PaintEventArgs e)
+        public virtual void DrawShip(object sender, PaintEventArgs e)
         {
-            drawing.DrawCar(sender, e);
+            drawing.DrawShip(sender, e);
         }
     }
 }

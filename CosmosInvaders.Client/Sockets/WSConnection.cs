@@ -163,7 +163,7 @@ namespace CosmosInvaders.Client
                 localVehicle.CoordinateY = 200;
                 localVehicle.CoordinateX = 200;
 
-                GameDraw.DrawCars(serverVehicles);
+                GameDraw.DrawShips(serverVehicles);
                 SetLog(JsonConvert.SerializeObject(serverVehicles.Select(x => x.PlayerName)));
             });
         }
@@ -182,7 +182,7 @@ namespace CosmosInvaders.Client
                 Vehicle vehicteToDelete = game.Vehicles.FirstOrDefault(x => x.PlayerName == playerName);
                 game.ObservableVehicles.Remove(vehicteToDelete);
                 game.Vehicles.Remove(vehicteToDelete);
-                GameDraw.DrawCars(game.Vehicles);
+                GameDraw.DrawShips(game.Vehicles);
             });
         }
 
@@ -222,7 +222,7 @@ namespace CosmosInvaders.Client
                     SetPosLog("X = " + playerVehicle.CoordinateX + "\nY = " + playerVehicle.CoordinateY + "\nSpot saved " + saves++);
                 }
                 //
-                GameDraw.DrawCars(game.Vehicles);
+                GameDraw.DrawShips(game.Vehicles);
             });
         }
 

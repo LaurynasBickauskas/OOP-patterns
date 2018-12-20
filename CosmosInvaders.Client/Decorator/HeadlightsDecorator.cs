@@ -17,12 +17,12 @@ namespace CosmosInvaders.Client
 
         public CannonDecorator(IDrawDecorator drawing, List<MinimalShip> _tempShips) : base(drawing, _tempShips)
         {
-            Cannon = ProxyImageFactory.GetProxyImage(@"..\..\headlights.png");
+            Cannon = ProxyImageFactory.GetProxyImage(@"..\..\cannon.png");
         }
 
-        public override void DrawCar(object sender, PaintEventArgs e)
+        public override void DrawShip(object sender, PaintEventArgs e)
         {
-            base.DrawCar(sender, e);
+            base.DrawShip(sender, e);
             var g = e.Graphics;
 
             foreach (var v in _tempShips)

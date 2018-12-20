@@ -60,7 +60,7 @@ namespace CosmosInvaders.Client
             }
 
             IDrawDecorator drawDecorator = new CannonDecorator(this, _tempShips);
-            var a = new PaintEventHandler(drawDecorator.DrawCar);
+            var a = new PaintEventHandler(drawDecorator.DrawShip);
             Canvas.Panel1.Paint += a;
 
             Canvas.Panel1.Invalidate();

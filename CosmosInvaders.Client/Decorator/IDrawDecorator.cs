@@ -9,6 +9,6 @@ namespace CosmosInvaders.Client
 {
     interface IDrawDecorator
     {
-        void DrawCar(object sender, PaintEventArgs e);
+        void DrawShip(object sender, PaintEventArgs e);
     }
 }

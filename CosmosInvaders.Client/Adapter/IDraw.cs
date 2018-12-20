@@ -5,6 +5,6 @@ namespace CosmosInvaders.Client
 {
     public interface IDraw
     {
-        void DrawCars(List<Vehicle> vehicles);
+        void DrawShips(List<Vehicle> vehicles);
     }
 }
