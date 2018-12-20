@@ -15,7 +15,7 @@ namespace CosmosInvaders.Client
     public class WSConnection
     {
         private static string URL = "http://localhost:54973";
-        private static string HUB_ID = "ChatHub";
+        private static string HUB_ID = "ConcreteHub";
 
         private HubConnection connection;
         private IHubProxy hub;

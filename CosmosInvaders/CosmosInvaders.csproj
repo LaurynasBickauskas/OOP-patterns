@@ -173,7 +173,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sockets\ChatHub.cs" />
+    <Compile Include="Sockets\ConcreteHub.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>

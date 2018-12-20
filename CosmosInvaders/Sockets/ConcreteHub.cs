@@ -8,7 +8,7 @@ using CosmosInvaders.Library;
 
 namespace CosmosInvaders
 {
-    public class ChatHub : Hub
+    public class ConcreteHub : Hub
     {
         private GameFacade _gameFacade { get; set; } = new GameFacade();
 

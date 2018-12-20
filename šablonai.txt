@@ -1,3 +1,35 @@
+LAB1
+Bendrai :
+Singleton, Adapter
+
+Pasirinkti viena iš :
+Factory, Abstract Factory, Strategy, Observer, 
+Neparinkta : Builder.
+Pasirinkti viena iš :
+Prototype, Decorator, Command, Facade
+Neparinkta : Bridge
+----------------------------------------------------
+TODO
+Singleton - Rytis 
+Adapter -  Gedas, Laurynas
+---
+Factory, Abstract Factory - Gediminas - done, perziuret ataskaita
+Observer - Rytis ?
+---
+Prototype - Gedas - done
+------------------------------------------
+FULLY DONE
+Strategy - Laurynas - kodas,Ataskaita 
+Command - Laurynas kodas, Ataskaita
+Decorator - Rytis kodas, Laurynas - Ataskaita
+
+
+
+
+Facade nevisiai kaip turi buti - neatitinka tikrojo patterno
+--------------------------------------------
+2 padaryta - visitor, mediator, proxy (gediminas, rytis)
+
 
 Bendrai :
 Singleton, Adapter
