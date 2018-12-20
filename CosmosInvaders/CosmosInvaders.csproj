@@ -177,10 +177,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Emoji\Laugh.txt" />
-    <Content Include="Emoji\Sad.txt" />
-    <Content Include="Emoji\Cry.txt" />
-    <Content Include="Emoji\Smile.txt" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="ApplicationInsights.config">

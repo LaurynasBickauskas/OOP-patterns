@@ -13,8 +13,6 @@ using System.Windows.Forms;
 using CosmosInvaders.Library;
 using System.Drawing.Drawing2D;
 using Newtonsoft.Json;
-using CosmosInvaders.Client.Interpreter;
-using CosmosInvaders.Client.Iterator;
 
 
 namespace CosmosInvaders.Client
@@ -26,7 +24,6 @@ namespace CosmosInvaders.Client
         private IDraw GameDraw { get; set; }
         private bool Connected { get; set; } = false;
         private WSConnection ChatHub { get; set; }
-        public CommandParser Parser { get; private set; }
 
         public CosmosInvaders_Client()
         {
@@ -70,9 +67,7 @@ namespace CosmosInvaders.Client
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
             UpdateStyles();
             this.KeyPreview = true;
-            Parser = new CommandParser();
-            Parser.Reset += (a) => ChatHub.Reset(a);
-            Parser.GetName += (a) => ChatHub.GetName(a);
+
         }
 
         private void Invoker(dynamic field, string text)
@@ -266,14 +261,7 @@ namespace CosmosInvaders.Client
             string userName = UsernameTextBox.Text;
             if (mes != "" && userName != "")
             {
-                if(mes[0] == '/')
-                {
-                    ExecuteCommand(userName,mes );
-                }
-                else
-                {
                     ChatHub.SendMessage(userName, mes);
-                }
             }
             message.Text = "";
         }
@@ -290,34 +278,12 @@ namespace CosmosInvaders.Client
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ChatHub.originator.getStateFromMemento(ChatHub.careTaker.getLast());
 
-            ChatHub.MementoReposition(
-                UsernameTextBox.Text, 
-                ChatHub.originator.getState().CoordinateX, 
-                ChatHub.originator.getState().CoordinateY
-                );
         }
 
         private void positionSaves_TextChanged(object sender, EventArgs e)
         {
 
-        }
-        private void ExecuteCommand(string userName, string mes)
-        {
-            Parser.Parse(mes);
-            Boolean debuging = true;
-            if (debuging)
-            {
-                IIterator iterator = Parser.getIterator();
-                while (iterator.HasNext())
-                {
-                    ChatHub.SendMessage(userName, iterator.ToString());
-                    iterator = iterator.Next();
-                }
-                ChatHub.SendMessage(userName, iterator.ToString());
-            }
-            Parser.Execute();
         }
     }
 }

@@ -102,14 +102,8 @@
     <Compile Include="DoubleBufferedPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Iterator\IContainer.cs" />
-    <Compile Include="Iterator\IIterator.cs" />
     <Compile Include="Proxy\ProxyImageFactory.cs" />
     <Compile Include="Proxy\NullImage.cs" />
-    <Compile Include="Interpreter\CommandParser.cs" />
-    <Compile Include="Interpreter\Expression.cs" />
-    <Compile Include="Interpreter\NonTerminalExpression.cs" />
-    <Compile Include="Interpreter\TerminalExpression.cs" />
     <Compile Include="Proxy\RealImage.cs" />
     <Compile Include="Proxy\Image.cs" />
     <Compile Include="Proxy\ProxyImage.cs" />

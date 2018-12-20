@@ -107,10 +107,6 @@ namespace CosmosInvaders.Client
             hub.Invoke<string>("Disconnect", PlayerName);
         }
 
-        public void MementoReposition(string playerName, int x, int y)
-        {
-            hub.Invoke<string>("MementoReposition", playerName, x, y);
-        }
 
         public string GetName(int index)
         {
@@ -121,22 +117,6 @@ namespace CosmosInvaders.Client
             catch { }
             return "";
             
-        }
-
-        public string Reset(string playerName)
-        {
-            if(playerName == "%default%")
-            {
-                hub.Invoke<string>("Disconnect", PlayerName);
-                hub.Invoke<string>("Connect", PlayerName, PlayerFamily, PlayerVehicle);
-            }
-            else
-            {
-                hub.Invoke<string>("Disconnect", playerName);
-                hub.Invoke<string>("Connect", playerName, PlayerFamily, PlayerVehicle);
-            }
-            
-            return "reset success";
         }
 
         public void Send(string methodName)

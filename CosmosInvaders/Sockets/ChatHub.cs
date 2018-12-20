@@ -60,20 +60,6 @@ namespace CosmosInvaders
             Clients.All.Disconnected(playerName);
         }
 
-        public void MementoReposition(string playerName, int x, int y)
-        {
-            Vehicle vehicle = _gameFacade.Vehicles.FirstOrDefault(xx => xx.PlayerName == playerName);
-            vehicle.CoordinateX = x;
-            vehicle.CoordinateY = y;
-            Clients.All.Moved(
-                JsonConvert.SerializeObject(vehicle)
-                );
-        }
-
-        //public List<Vehicle> GetMovedVehicleInfo(string playerName)
-        //{
-        //    return await _gameFacade.CheckForMovements(playerName);
-        //}
 
         public void GetObstacles()
         {
@@ -85,20 +71,9 @@ namespace CosmosInvaders
 
         public void Send(string name, string message)
         {
-            // Call the broadcastMessage method to update clients.
             Clients.All.broadcastMessage(name, message);
         }
 
-        //public void GetPlayers()
-        //{
-        //    List<Player> players = Game.GetInstance().Players;
-        //    Clients.All.broadcastMessage(players);
-        //}
 
-        //public void GetMap()
-        //{
-        //    Map map = Game.GetInstance().GetMap();
-        //    Clients.Caller.mapMessage(map);
-        //}
     }
 }
