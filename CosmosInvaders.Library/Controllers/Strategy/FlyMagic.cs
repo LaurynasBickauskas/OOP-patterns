@@ -3,8 +3,8 @@ using System;
 namespace CosmosInvaders.Library
 {
     public class FlyMagic : FlyAlgorithm
-    {
-        public (int x, int y, int speed) Move(int x, int y, FlyingDirection previousDir, FlyingDirection newDir, int speed)
+    { 
+        public void Move(ref int x, ref int y, FlyingDirection previousDir, FlyingDirection newDir, ref int speed)
         {
             if (newDir == FlyingDirection.Up)
             {
@@ -23,7 +23,6 @@ namespace CosmosInvaders.Library
                 x -= 10;
             }
             NotifyOtherDestroyers();
-            return (x, y,speed);
         }
 
 
