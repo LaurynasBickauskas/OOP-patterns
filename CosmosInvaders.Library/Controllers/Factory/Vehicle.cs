@@ -11,7 +11,7 @@ namespace CosmosInvaders.Library
         public int HealthPoints { get; set; }
         public int MaxHealthPoints { get; set; }
         public int Speed { get; set; }
-        public DrivingDirection DrivingDirection { get; set; } = DrivingDirection.Up;
+        public FlyingDirection FlyingDirection { get; set; } = FlyingDirection.Up;
         private DriveAlgorithm _currentDrivingAlorithm { get; set; } = new DriveRegular();
 
         public bool SomeoneChangedState { get; set; }
@@ -30,15 +30,15 @@ namespace CosmosInvaders.Library
             CoordinateY = y;
         }
 
-        public void Drive(DrivingDirection direction)
+        public void Drive(FlyingDirection direction)
         {
-            DrivingDirection = direction; //TODO: pakeist kad susiestu su vairavimu krc nzn
+            FlyingDirection = direction; //TODO: pakeist kad susiestu su vairavimu krc nzn
             Drive(_currentDrivingAlorithm);
         }
 
         private void Drive(DriveAlgorithm algoritm)
         {
-            (CoordinateX, CoordinateY) = algoritm.Move(CoordinateX, CoordinateY, DrivingDirection, Speed);
+            (CoordinateX, CoordinateY) = algoritm.Move(CoordinateX, CoordinateY, FlyingDirection, Speed);
         }
 
         public void Update()
@@ -54,25 +54,25 @@ namespace CosmosInvaders.Library
             }
         }
 
-        public DrivingDirection Display()
+        public FlyingDirection Display()
         {
-            return DrivingDirection;
+            return FlyingDirection;
         }
 
         public void ChangeDirection(TurnTo directionToTurn)
         {
-            int directionResult = (int)DrivingDirection + (int)directionToTurn;
+            int directionResult = (int)FlyingDirection + (int)directionToTurn;
             if (directionResult < 0)
             {
-                DrivingDirection = (DrivingDirection)3;
+                FlyingDirection = (FlyingDirection)3;
                 return;
             }
             if (directionResult > 3)
             {
-                DrivingDirection = (DrivingDirection)0;
+                FlyingDirection = (FlyingDirection)0;
                 return;
             }
-            DrivingDirection = (DrivingDirection)directionResult;
+            FlyingDirection = (FlyingDirection)directionResult;
         }
 
         public void ChangeSpeed(bool foward)

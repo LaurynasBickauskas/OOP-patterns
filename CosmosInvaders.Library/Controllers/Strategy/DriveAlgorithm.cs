@@ -6,23 +6,23 @@ namespace CosmosInvaders.Library
     {
         private const double _straightMovementParameter = 1;
 
-        public (int x, int y) Move(int x, int y, DrivingDirection direction, double speed)
+        public (int x, int y) Move(int x, int y, FlyingDirection direction, double speed)
         {
             switch (direction)
             {
-                case DrivingDirection.Left:
+                case FlyingDirection.Left:
                     x -= CalculateMovement(_straightMovementParameter, speed);
                     break;
 
-                case DrivingDirection.Up:
+                case FlyingDirection.Up:
                     y -= CalculateMovement(_straightMovementParameter, speed);
                     break;
 
-                case DrivingDirection.Right:
+                case FlyingDirection.Right:
                     x += CalculateMovement(_straightMovementParameter, speed);
                     break;
 
-                case DrivingDirection.Down:
+                case FlyingDirection.Down:
                     y += CalculateMovement(_straightMovementParameter, speed);
                     break;
             }

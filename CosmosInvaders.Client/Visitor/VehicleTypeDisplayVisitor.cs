@@ -11,7 +11,7 @@ namespace CosmosInvaders.Client.Visitor
         private IImage ShipR;
         private IImage ShipF;
 
-        public Bitmap Visit(Bikes.Bicycle bicycle, DrivingDirection direction)
+        public Bitmap Visit(Bikes.Bicycle bicycle, FlyingDirection direction)
         {
             ShipL = ProxyImageFactory.GetProxyImage(@"..\..\Images\bicycleL.png");
             ShipB = ProxyImageFactory.GetProxyImage(@"..\..\Images\bicycleB.png");
@@ -21,7 +21,7 @@ namespace CosmosInvaders.Client.Visitor
             return DirectionSwitcher(direction);
         }
 
-        public Bitmap Visit(Bikes.Motorbike motorbike, DrivingDirection direction)
+        public Bitmap Visit(Bikes.Motorbike motorbike, FlyingDirection direction)
         {
             ShipL = ProxyImageFactory.GetProxyImage(@"..\..\Images\motorbikeL.png");
             ShipB = ProxyImageFactory.GetProxyImage(@"..\..\Images\motorbikeB.png");
@@ -31,7 +31,7 @@ namespace CosmosInvaders.Client.Visitor
             return DirectionSwitcher(direction);
         }
 
-        public Bitmap Visit(Bikes.Quad quad, DrivingDirection direction)
+        public Bitmap Visit(Bikes.Quad quad, FlyingDirection direction)
         {
             ShipL = ProxyImageFactory.GetProxyImage(@"..\..\Images\quadL.png");
             ShipB = ProxyImageFactory.GetProxyImage(@"..\..\Images\quadB.png");
@@ -41,7 +41,7 @@ namespace CosmosInvaders.Client.Visitor
             return DirectionSwitcher(direction);
         }
 
-        public Bitmap Visit(Cars.Jeep jeep, DrivingDirection direction)
+        public Bitmap Visit(Cars.Jeep jeep, FlyingDirection direction)
         {
             ShipL = ProxyImageFactory.GetProxyImage(@"..\..\Images\jeepL.png");
             ShipB = ProxyImageFactory.GetProxyImage(@"..\..\Images\jeepB.png");
@@ -51,7 +51,7 @@ namespace CosmosInvaders.Client.Visitor
             return DirectionSwitcher(direction);
         }
 
-        public Bitmap Visit(Cars.RaceCar careCar, DrivingDirection direction)
+        public Bitmap Visit(Cars.RaceCar careCar, FlyingDirection direction)
         {
             ShipL = ProxyImageFactory.GetProxyImage(@"..\..\Images\carL.png");
             ShipB = ProxyImageFactory.GetProxyImage(@"..\..\Images\carB.png");
@@ -61,7 +61,7 @@ namespace CosmosInvaders.Client.Visitor
             return DirectionSwitcher(direction);
         }
 
-        public Bitmap Visit(Cars.Truck truck, DrivingDirection direction)
+        public Bitmap Visit(Cars.Truck truck, FlyingDirection direction)
         {
             ShipL = ProxyImageFactory.GetProxyImage(@"..\..\Images\truckL.png");
             ShipB = ProxyImageFactory.GetProxyImage(@"..\..\Images\truckB.png");
@@ -71,20 +71,20 @@ namespace CosmosInvaders.Client.Visitor
             return DirectionSwitcher(direction);
         }
 
-        private Bitmap DirectionSwitcher(DrivingDirection direction)
+        private Bitmap DirectionSwitcher(FlyingDirection direction)
         {
             switch (direction)
             {
-                case DrivingDirection.Left:
+                case FlyingDirection.Left:
                     return ShipL.GetImage();
 
-                case DrivingDirection.Up:
+                case FlyingDirection.Up:
                     return ShipF.GetImage();
 
-                case DrivingDirection.Right:
+                case FlyingDirection.Right:
                     return ShipR.GetImage();
 
-                case DrivingDirection.Down:
+                case FlyingDirection.Down:
                     return ShipB.GetImage();
 
                 default:

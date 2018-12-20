@@ -203,12 +203,12 @@ namespace CosmosInvaders.Client
 
                 playerShip.CoordinateX = serverShip.CoordinateX;
                 playerShip.CoordinateY = serverShip.CoordinateY;
-                playerShip.DrivingDirection = serverShip.DrivingDirection;
+                playerShip.FlyingDirection = serverShip.FlyingDirection;
 
                 if (serverShip.PlayerName == PlayerName)
                 {
                     SetSpeed(serverShip.Speed.ToString());
-                    SetDirection(serverShip.DrivingDirection.ToString());
+                    SetDirection(serverShip.FlyingDirection.ToString());
                 }
 
                 GameDraw.DrawShips(game.Ships);

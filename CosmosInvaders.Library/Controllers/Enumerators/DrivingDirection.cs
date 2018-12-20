@@ -1,6 +1,6 @@
 ﻿namespace CosmosInvaders.Library
 {
-    public enum DrivingDirection
+    public enum FlyingDirection
     {
         Left = 0,
         Up = 1,

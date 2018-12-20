@@ -5,7 +5,7 @@ namespace CosmosInvaders.Client.Visitor.Cars
 {
     public class Jeep : IShipType
     {
-        public Bitmap Display(IShipTypeVisitor shipTypeVisitor, DrivingDirection direction)
+        public Bitmap Display(IShipTypeVisitor shipTypeVisitor, FlyingDirection direction)
         {
             return shipTypeVisitor.Visit(this, direction);
         }
